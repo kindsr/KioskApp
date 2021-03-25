@@ -1,0 +1,148 @@
+﻿;
+; Language File : ko-KR
+; Version         : 1602021359
+;
+; Notes
+; - File name format: 'ISO 639-1 alpha-2'-'ISO 3166 alpha-2'.lang
+;	https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+;	https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+; - File encoding shoud be the UNICODE
+; - Using ';' at front of the line for comments
+; - DO NOT USE '=' character in the sentences
+
+; English language name
+LANG1=KOR
+
+; Native langauge name
+LANG2=한국어
+
+; Common sentences
+HOME=처음으로
+HELP=도움말
+PREVIOUS=이전
+NEXT=다음
+CANCEL=취소
+CONFIRM=확인
+YES=예
+NO=아니오
+PAYMENT=결제
+ADMINISTRATOR=관리자
+
+; Design List
+SOLID=단색
+FULL=풀컬러
+GRADATION=그라데이션
+VACANCE=바캉스
+LUXURY=럭셔리
+CUTE=큐트
+WATERMARBLE=워터마블
+STRIPE=스트라이프
+FRENCH=프렌치
+WATERDECAL=워터데칼
+ART=아트
+USB=USB
+TASTE=취향
+GLITTER=글리터
+PATTERN=패턴
+WEEKLYPICK=Weekly Pick
+
+M100_ctBtStart=시작
+M100_ctBtQrScan=QR Scan
+M100_ctBtUsage=사용방법
+
+M200_ctTbMyDesign=나의 선택
+M200_ctTbDesignPrice=결제할 금액
+M200_ctTbDesignCurrency=원
+M200_ctTbDesignCount=선택한 갯수
+M200_ctTbDesignMesure=개
+M200_ctTbClearAll=전체삭제
+M290_ctTbInsertUSB=USB를 꽂아주세요.
+
+M300_ctTbDesignConfirm=디자인을 확인하시고
+M300_ctTbDesignConfirm2=결제 방법을 선택해 주세요.
+M300_ctTbPrintCount=출력 장수
+M300_ctTbWaitingImage=이미지 준비중입니다. 잠시만 기다려 주세요.
+
+M400_ctTbPayment=카드를 투입구 끝까지 투입하거나
+M400_ctTbPayment2=모바일 페이를 실행하여 결제해 주세요.
+M400_ctTbCardInsert=신용카드를 그림과 같이 IC카드 리더기에 꽂아주세요.
+M400_ctTbProcessingPayment=잠시만 기다려주세요.
+M400_ctTbProcessingPayment2=카드를 읽고 있습니다.
+M400_ctTbFinish=신용카드를 빼주세요.
+M410_ctTbScanQRCode=가지고 계신 QR코드를 스캔해 주세요.
+
+M500_ctTBPrintYN=영수증을 출력 하시겠습니까?
+M500_ctTbPrintReceipt=결제가 완료되었습니다.
+M500_ctTbConfirmReceipt=영수증을 찾아가주세요.
+M500_ctTbPlacePrintReceipt=영수증 나오는 곳
+
+M600_ctTbPrintNailSticker=네일 프린트 중입니다.
+M600_ctTbWaitForaWhile=잠시만 기다려주세요.
+M600_ctTbHowToUse=네일 스티커 사용 방법
+M600_ctTbHowToUse1=1. 손톱표면을 깨끗이 정리한 후 알코올, 리무버등으로 표면의 유수분기를 제거합니다.
+M600_ctTbHowToUse2=2. 손톱사이즈보다 살짝 좁은(작은) 조각을 고릅니다.
+M600_ctTbHowToUse3=3. 큐티클 방향부터 손톱 끝 방향으로 붙인 후 양옆을 꼼꼼히 붙입니다.
+M600_ctTbHowToUse4=4. 부착 후 남은 부분은 네일파일을 세워 한쪽 방향으로 쓸어 제거합니다.
+M600_ctTbHowToUse5=5. 탑젤을 발라 LED램프에 건조시키면 더 오래 사용가능합니다.
+M600_ctTbHowToUse6=　　　
+M600_ctTbWarning=스티커 사용 주의사항
+M600_ctTbWarningLine1=1. 사용 후 남은 조각은 비닐에 담아 그늘진 곳에 보관하고 60일 이내 사용합니다.
+M600_ctTbWarningLine2=2. 어린이의 손에 닿지 않는 곳에 보관합니다.
+M600_ctTbWarningLine3=3. 고온,저온, 및 직사광선이 닿는 곳에 보관하지 말아 주십시오.
+M600_ctTbWarningLine4=4. 손의 땀, 물기, 핸드크림, 오일 등은 접착력을 떨어트릴 수 있는 주요 원인이 됩니다.
+M600_ctTbWarningLine5=^^^사용 전 비누로 손을 깨끗이 씻고 유,수분기를 완벽하게 없애주세요.
+M600_ctTbWarningLine6=5. 14세 이상 사용 가능하며, 유아의 경우 보호자와 함께 사용가능합니다.
+M600_ctTbWarningLine7=6. 본 제품에 이상이 있는 경우 공정거래위원회고시 '소비자분쟁해결기준'에
+M600_ctTbWarningLine8=^^^의거하여 교환 또는 보상을 받을 수 있습니다.
+
+M700_ctTbLookForNailSticker=네일스티커를 찾아가세요.
+M700_ctTbCallManager=출력 상태가 이상하면 관리자에게 문의하세요.
+
+Q200_ctTbScanQRCode=가지고 계신 QR코드를 스캔해 주세요.
+Q300_ctTbSelectImage=출력할 이미지를 선택하시고,
+Q300_ctTbSelectImage2=결제 방법을 선택해 주세요.
+Q300_ctTbPrintCount=출력 장수
+
+A000_MAIN=관리자 암호 
+A000_KEYPADDELETE=삭제 
+A000_KEYPADSUBMIT=확인 
+
+VALIDATION_TITLE_ERROR=오류
+VALIDATION_TITLE_INFO=정보
+VALIDATION_TITLE_WARNNING=경고
+
+VALIDATION_FULL_DESIGN=디자인을 모두 선택하셨습니다.
+VALIDATION_PRINT_RECEIPT=영수증을 출력 하시겠습니까?
+
+VALIDATION_CARD_PAYMENT_FAILED=카드 정보를 확인하지 못했습니다.
+VALIDATION_FIRST_PAGE=처음 화면으로 이동합니다.
+
+VALIDATION_WAIT_FOR_ADMIN=선택한 이미지 출력을 시작합니다. 잠시만 기다려주세요.
+
+VALIDATION_EXPIRED_QR_CODE=QR코드의 유효기간이 만료되었습니다.
+VALIDATION_NOT_VALID_QR_CODE=유효한 QR 코드가 아닙니다.
+IMAGE_DOWNLOADING=이미지를 가져오는 중입니다.
+
+VALIDATION_PRINT_FAILED=네일 스티커 출력을 못했습니다.
+CALL_THE_MANAGER=관리자를 호출하세요.
+VALIDATION_EMPTY_PAPER=용지가 부족합니다.
+VALIDATION_EMPTY_RECEIPT_PAPER=영수증 용지가 부족합니다.
+
+;------------------------------------------------------------------------
+
+MainWindow_reset=리셋 
+MainWindow_restart=윈도우종료
+MainWindow_Shutdown=끝내기  
+MainWindow_Off=시작페이지로 
+MainWindow_languageTitle=언어를 선택해주세요 
+
+ER4001_MAIN=운영 중단 
+
+AD8000_MAIN=관리자 암호 
+AD8000_KEYPADDELETE=삭제 
+AD8000_KEYPADSUBMIT=확인 
+
+M200_Comment1=사진을 누르면, 추천하는 SET 디자인이 적용 됩니다.
+M200_Comment2=디자인을 하나씩 선택 할 수 있습니다.
+M200_Comment3=엑스 버튼을 눌러 취소 후, 다른 디자인을 넣을 수 있습니다.
+M200_Comment4=디자인 테마를 골라, 다양한 디자인을 구경하세요.

@@ -1,0 +1,148 @@
+﻿;
+; Language File : es-ES
+; Version         : 1602021359
+;
+; Notes
+; - File name format: 'ISO 639-1 alpha-2'-'ISO 3166 alpha-2'.lang
+;	https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+;	https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+; - File encoding shoud be the UNICODE
+; - Using ';' at front of the line for comments
+; - DO NOT USE '=' character in the sentences
+
+; English language name
+LANG1=ESP
+
+; Native langauge name
+LANG2=Español
+
+; Common sentences
+HOME=Primero
+HELP=Ayuda
+PREVIOUS=Anterior
+NEXT=Siguiente
+CANCEL=Cancelar
+CONFIRM=Verificar
+YES=SÍ
+NO=NO
+PAYMENT=PAGO
+ADMINISTRATOR=ADMINISTRADOR
+
+; Design List
+SOLID=Solid
+FULL=Full Color
+GRADATION=Gradation
+VACANCE=Vacance
+LUXURY=Luxury
+CUTE=Cute
+WATERMARBLE=Water Marble
+STRIPE=Stripe
+FRENCH=French
+WATERDECAL=Water Decal
+ART=Art
+USB=USB
+TASTE=Taste
+GLITTER=Glitter
+PATTERN=Pattern
+WEEKLYPICK=Weekly Pick
+
+M100_ctBtStart=Comienzo
+M100_ctBtQrScan=QR escanear
+M100_ctBtUsage=Cómo utilizar
+
+M200_ctTbMyDesign=Mis diseños
+M200_ctTbDesignPrice=Precio total
+M200_ctTbDesignCurrency=EUR
+M200_ctTbDesignCount=Seleccionado
+M200_ctTbDesignMesure=ea
+M200_ctTbClearAll=Borrar todo
+M290_ctTbInsertUSB=Por favor inserte su USB.
+
+M300_ctTbDesignConfirm=Confirmar los diseños,
+M300_ctTbDesignConfirm2=Y seleccione su método de pago.
+M300_ctTbPrintCount=Número de impresiones
+M300_ctTbWaitingImage=Espere un momento, estamos generando la imagen.
+
+M400_ctTbPayment=Por favor inserte su tarjeta de crédito,
+M400_ctTbPayment2=O proceda con el pago desde su teléfono móvil.
+M400_ctTbCardInsert=Por favor inserte su tarjeta de crédito en el lector de tarjetas IC como se muestra en la imagen.
+M400_ctTbProcessingPayment=Por favor espere un momento
+M400_ctTbProcessingPayment2=Leyendo la tarjeta de crédito.
+M400_ctTbFinish=Por favor retire su tarjeta de crédito.
+M410_ctTbScanQRCode=Por favor escanee su código QR.
+
+M500_ctTBPrintYN=¿Le gustaría imprimir el recibo?
+M500_ctTbPrintReceipt=Pago completado.
+M500_ctTbConfirmReceipt=Por favor, revise el recibo.
+M500_ctTbPlacePrintReceipt=¿De dónde viene el recibo?
+
+M600_ctTbPrintNailSticker=Imprimiendo sticker de uñas
+M600_ctTbWaitForaWhile=Por favor, espere.
+M600_ctTbHowToUse=Como usar el sticker
+M600_ctTbHowToUse1=   
+M600_ctTbHowToUse2=   
+M600_ctTbHowToUse3=   
+M600_ctTbHowToUse4=   
+M600_ctTbHowToUse5=   
+M600_ctTbHowToUse6=   
+M600_ctTbWarning=Notas para usar el sticker
+M600_ctTbWarningLine1=1. Las uñas pueden dañarse según el uso 
+M600_ctTbWarningLine2=^^^Duración del producto y condiciones de las uñas del usuario.
+M600_ctTbWarningLine3=2. Suspenda su uso si tiene reacciones
+M600_ctTbWarningLine4=^^^como manchas rojas, hinchazón, picazón o irritación.
+M600_ctTbWarningLine5=3. No almacenar en un lugar muy frío 
+M600_ctTbWarningLine6=^^^o muy caliente, tampoco exponerlo directamente a la luz solar.
+M600_ctTbWarningLine7=   
+M600_ctTbWarningLine8=   
+
+M700_ctTbLookForNailSticker=Tome sus stickers de uñas.
+M700_ctTbCallManager=Si el estado del producto es anormal, favor de comunicarse con el administrador.
+
+Q200_ctTbScanQRCode=Por favor escanee su código QR.
+Q300_ctTbSelectImage=Seleccione las imágenes que imprimirá
+Q300_ctTbSelectImage2=Seleccione el método de pago.
+Q300_ctTbPrintCount=Número de impresiones
+
+A000_MAIN=Contraseña de administrador
+A000_KEYPADDELETE=Eliminar
+A000_KEYPADSUBMIT=Verificar
+
+VALIDATION_TITLE_ERROR=Error
+VALIDATION_TITLE_INFO=Información
+VALIDATION_TITLE_WARNNING=Alerta
+
+VALIDATION_FULL_DESIGN=Seleccionar todos los diseños.
+VALIDATION_PRINT_RECEIPT=¿Le gustaría imprimir el recibo?
+
+VALIDATION_CARD_PAYMENT_FAILED=Tarjeta inválida.
+VALIDATION_FIRST_PAGE=Ir a la página de inicio.
+
+VALIDATION_WAIT_FOR_ADMIN=Imprimiendo la imagen seleccionada. Por favor, espere.
+
+VALIDATION_EXPIRED_QR_CODE=La validez del código QR ha expirado. 
+VALIDATION_NOT_VALID_QR_CODE=El código QR no es válido. 
+IMAGE_DOWNLOADING=Descargando imágenes. 
+
+VALIDATION_PRINT_FAILED=Failed to print nail sticker.
+CALL_THE_MANAGER=Please call the manager in charge.
+VALIDATION_EMPTY_PAPER=Sin papel.
+VALIDATION_EMPTY_RECEIPT_PAPER=Empty receipt paper.
+
+;------------------------------------------------------------------------
+
+MainWindow_reset=Reconfigurar
+MainWindow_restart=Finalizar
+MainWindow_Shutdown=Salida
+MainWindow_Off=A la página de inicio
+MainWindow_languageTitle=Seleccione el idioma
+
+ER4001_MAIN=Detener la operación
+
+AD8000_MAIN=Contraseña de administrador
+AD8000_KEYPADDELETE=Eliminar
+AD8000_KEYPADSUBMIT=Verificar
+
+M200_Comment1=If you push the picture, it is applied set designs recommended.
+M200_Comment2=You can select the nail design one by one.
+M200_Comment3=If you push the X button, it is able to insert another design.
+M200_Comment4=Look around the nail designs with various design theme.

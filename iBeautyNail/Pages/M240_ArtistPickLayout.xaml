@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="iBeautyNail.Pages.M240_ArtistPickLayout"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:vm="clr-namespace:iBeautyNail.ViewModel"
+      xmlns:local="clr-namespace:iBeautyNail.Pages"
+      xmlns:ctrl="clr-namespace:iBeautyNail.Extensions.Controls"
+      xmlns:converter="clr-namespace:iBeautyNail.Extensions.Converters"
+      xmlns:data="clr-namespace:iBeautyNail.Datas"    
+      xmlns:beh="clr-namespace:iBeautyNail.Extensions.Behaviour"
+      mc:Ignorable="d"
+      d:DesignHeight="1126" d:DesignWidth="1080">
+
+    <UserControl.Resources>
+        <converter:ImageConverter x:Key="ImageConverter"/>
+    </UserControl.Resources>
+    <i:Interaction.Behaviors>
+        <beh:MouseBehaviour MouseX="{Binding PanelX, Mode=OneWayToSource}" MouseY="{Binding PanelY, Mode=OneWayToSource}"/>
+    </i:Interaction.Behaviors>
+    <Grid x:Name="LayoutRoot">
+        <ListBox x:Name ="modelPresentingListView" Style="{StaticResource modelNailListBoxStyle}"  ItemsSource="{Binding MyPhotoPathFiles}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type vm:DesignBaseViewModel}">
+                    <Grid Background="White" Width="1000">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="926"></RowDefinition>
+                            <RowDefinition Height="200"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image x:Name ="imgModelSource" Grid.Row="0" Source="{Binding ModelPath}" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseUp">
+                                    <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectModelNailDesignCommand}" CommandParameter="{Binding}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Image>
+                        <Grid Grid.Row="1" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <ListBox Grid.Column="0" ItemsSource="{Binding ModelNailList}" Style="{StaticResource designListBoxStyle}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Width="80" Height="120" VerticalAlignment="Bottom" Source="{Binding Path=DesignPath}" Margin="5,10,0,0">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="PreviewMouseDown">
+                                                    <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectNailDesignDownCommand}" CommandParameter="{Binding}" />
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="PreviewMouseUp">
+                                                    <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectNailDesignUpCommand}" CommandParameter="{Binding}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                            <Image.OpacityMask>
+                                                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Images/nail.png" Stretch="Fill" />
+                                            </Image.OpacityMask>
+                                            <Image.Effect>
+                                                <DropShadowEffect Direction="-25" Color="#FFB6C2CB" ShadowDepth="7" BlurRadius="20" Opacity="0.8" />
+                                            </Image.Effect>
+                                        </Image>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel Orientation="Horizontal" HorizontalAlignment="Center" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ListBox>
+                            <ListBox Grid.Column="2" ItemsSource="{Binding ModelNailList2}" Style="{StaticResource designListBoxStyle}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Width="80" Height="120" VerticalAlignment="Bottom" Source="{Binding Path=DesignPath}" Margin="5,10,0,0">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="PreviewMouseDown">
+                                                    <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectNailDesignDownCommand}" CommandParameter="{Binding}" />
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="PreviewMouseUp">
+                                                    <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectNailDesignUpCommand}" CommandParameter="{Binding}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                            <Image.OpacityMask>
+                                                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Images/nail.png" Stretch="Fill" />
+                                            </Image.OpacityMask>
+                                            <Image.Effect>
+                                                <DropShadowEffect Direction="-25" Color="#FFB6C2CB" ShadowDepth="7" BlurRadius="20" Opacity="0.8" />
+                                            </Image.Effect>
+                                        </Image>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel Orientation="Horizontal" HorizontalAlignment="Center" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ListBox>
+                        </Grid>
+                        
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

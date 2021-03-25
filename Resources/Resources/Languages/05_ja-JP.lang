@@ -1,0 +1,147 @@
+﻿;
+; Language File : ja-JP
+; Version         : 1602021359
+;
+; Notes
+; - File name format: 'ISO 639-1 alpha-2'-'ISO 3166 alpha-2'.lang
+;	https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+;	https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+; - File encoding shoud be the UNICODE
+; - Using ';' at front of the line for comments
+; - DO NOT USE '=' character in the sentences
+
+; English language name
+LANG1=JPN
+
+; Native langauge name
+LANG2=日本語
+
+; Common sentences
+HOME=ホーム
+HELP=ヘルプ
+PREVIOUS=戻る
+NEXT=次へ
+CANCEL=取消
+CONFIRM=確認
+YES=はい
+NO=いいえ
+PAYMENT=決済
+ADMINISTRATOR=管理者
+
+; Design List
+SOLID=Solid
+FULL=Full Color
+GRADATION=Gradation
+VACANCE=Vacance
+LUXURY=Luxury
+CUTE=Cute
+WATERMARBLE=Water Marble
+STRIPE=Stripe
+FRENCH=French
+WATERDECAL=Water Decal
+ART=Art
+USB=USB
+TASTE=Taste
+GLITTER=Glitter
+PATTERN=Pattern
+WEEKLYPICK=Weekly Pick
+
+M100_ctBtStart=スタート
+M100_ctBtQrScan=QR スキャン
+M100_ctBtUsage=使用方法
+
+M200_ctTbMyDesign=マイデザイン
+M200_ctTbDesignPrice=お支払い金額
+M200_ctTbDesignCurrency=ウォン
+M200_ctTbDesignCount=選択した個数
+M200_ctTbDesignMesure=個
+M200_ctTbClearAll=全体削除
+M290_ctTbInsertUSB=USBをお差しください
+
+M300_ctTbDesignConfirm=デザインを確認し
+M300_ctTbDesignConfirm2=お支払い方法をお選びください
+M300_ctTbPrintCount=印刷枚数
+M300_ctTbWaitingImage=イメージを準備中です。しばらくお待ちください
+
+M400_ctTbPayment=カードを奥までお入れ下さい。
+M400_ctTbPayment2=または、モバイルペイを実行し、お支払いください
+M400_ctTbCardInsert=画像のようにICカードリーダーにクレジットカードを挿入して下さい。
+M400_ctTbProcessingPayment=しばらくお待ちください
+M400_ctTbProcessingPayment2=カードを読み取り中です。
+M400_ctTbFinish=クレジットカートを抜いてください
+M410_ctTbScanQRCode=お手持ちのQRコードをスキャンしてください
+
+M500_ctTBPrintYN=領収書をご発行しますか？
+M500_ctTbPrintReceipt=お支払いが完了しました。
+M500_ctTbConfirmReceipt=領収書をお受け取りください
+M500_ctTbPlacePrintReceipt=領収書
+
+M600_ctTbPrintNailSticker=ネイルをプリントしています
+M600_ctTbWaitForaWhile=しばらくお待ちください
+M600_ctTbHowToUse=シールの貼り方
+M600_ctTbHowToUse1=   
+M600_ctTbHowToUse2=   
+M600_ctTbHowToUse3=   
+M600_ctTbHowToUse4=   
+M600_ctTbHowToUse5=   
+M600_ctTbHowToUse6=   
+M600_ctTbWarning=シール使用の注意事項
+M600_ctTbWarningLine1=^^^^^^^^^^1. 商品の使用期間と個人の爪の健康状態により
+M600_ctTbWarningLine2=^^^^^^^^^^^^^お肌に異常がある場合は使用を中止してください。
+M600_ctTbWarningLine3=^^^^^^^^^^2. 赤み、はれ、かゆみ、刺激、色抜け（白斑等）や黒ずみ等の
+M600_ctTbWarningLine4=^^^^^^^^^^^^^異常があらわれた場合はお使いにならないでください
+M600_ctTbWarningLine5=^^^^^^^^^^3. 高温または低温、多湿の場所、直射日光の
+M600_ctTbWarningLine6=^^^^^^^^^^^^^当たる場所には保管しないでください。
+M600_ctTbWarningLine7=    
+M600_ctTbWarningLine8=   
+
+M700_ctTbLookForNailSticker=ネイルシールをお受け取りください
+M700_ctTbCallManager=もしも、出力状態に異常がある場合は管理者に連絡して下さい。
+
+Q200_ctTbScanQRCode=お手持ちのQRコードをスキャンしてください
+Q300_ctTbSelectImage=出力するイメージの選択
+Q300_ctTbSelectImage2=お支払い方法をお選びください
+Q300_ctTbPrintCount=印刷枚数
+
+A000_MAIN=管理者パスワード
+A000_KEYPADDELETE=削除
+A000_KEYPADSUBMIT=確認
+
+VALIDATION_TITLE_ERROR=エラー
+VALIDATION_TITLE_INFO=情報
+VALIDATION_TITLE_WARNNING=警告
+
+VALIDATION_FULL_DESIGN=全てのデザインを選択しました。
+VALIDATION_PRINT_RECEIPT=領収書をご発行しますか？
+
+VALIDATION_CARD_PAYMENT_FAILED=カードを読み取れません。
+VALIDATION_FIRST_PAGE=最初のページに戻ります。
+
+VALIDATION_WAIT_FOR_ADMIN=選択したイメージの出力を開始します。しばらくお待ちください。
+VALIDATION_EXPIRED_QR_CODE=QRコードの有効期限が切れてます。
+VALIDATION_NOT_VALID_QR_CODE=有効な QR コードではありません。
+IMAGE_DOWNLOADING=イメージをダウンロード中。
+
+VALIDATION_PRINT_FAILED=ネイルステッカーの出力をしました。
+CALL_THE_MANAGER=管理者を呼び出してください。
+VALIDATION_EMPTY_PAPER=紙がありません。
+VALIDATION_EMPTY_RECEIPT_PAPER=Empty receipt paper.
+
+;------------------------------------------------------------------------
+
+MainWindow_reset=リセット
+MainWindow_restart=シャットダウン
+MainWindow_Shutdown=終了
+MainWindow_Off=開始ページへ
+MainWindow_languageTitle=言語を選択してください
+
+ER4001_MAIN=運営中断
+
+AD8000_MAIN=管理者パスワード
+AD8000_KEYPADDELETE=削除
+AD8000_KEYPADSUBMIT=確認
+
+M200_Comment1=If you push the picture, it is applied set designs recommended.
+M200_Comment2=You can select the nail design one by one.
+M200_Comment3=If you push the X button, it is able to insert another design.
+M200_Comment4=Look around the nail designs with various design theme.

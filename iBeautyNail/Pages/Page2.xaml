@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="iBeautyNail.Pages.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:vm="clr-namespace:iBeautyNail.ViewModel"
+      xmlns:local="clr-namespace:iBeautyNail.Pages"
+      xmlns:ctrl="clr-namespace:iBeautyNail.Extensions.Controls"
+      xmlns:data="clr-namespace:iBeautyNail.Datas"       
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="1080">
+
+    <Grid x:Name="LayoutRoot" DataContext="{Binding CurrentPageViewModel}">
+        <ListBox x:Name="ItemsPresentingListView" ItemsSource="{Binding Path=DesignCompleteList}">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type vm:DesignBaseViewModel}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition ></RowDefinition>
+                                        <RowDefinition ></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Text="{Binding Path=Line}" FontWeight="Bold" FontSize="15"/>
+                                    <Rectangle Grid.Row="0" VerticalAlignment="Bottom" Fill="Black" Height="3" HorizontalAlignment="Stretch"></Rectangle>
+                                    <ListBox Grid.Row="1" Style="{StaticResource nailListBoxStyle}" ItemsSource="{Binding Designs}" BorderBrush="#00FFFFFF">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Image Height="130" Width="60" VerticalAlignment="Center" Source="{Binding Path=DesignPath}" Margin="5,0">
+                                                        <i:Interaction.Triggers>
+                                                            <i:EventTrigger EventName="MouseUp">
+                                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectNailDesignCommand}" CommandParameter="{Binding}" />
+                                                            </i:EventTrigger>
+                                                        </i:Interaction.Triggers>
+                                                    </Image>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ListBox>
+                                </Grid>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+    </Grid>
+</UserControl>

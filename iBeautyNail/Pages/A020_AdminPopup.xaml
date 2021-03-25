@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="iBeautyNail.Pages.A020_AdminPopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:iBeautyNail.Pages"
+             xmlns:ctrl="clr-namespace:iBeautyNail.Extensions.Controls"
+             xmlns:gif="clr-namespace:XamlAnimatedGif;assembly=XamlAnimatedGif"
+             Background="{DynamicResource stylePinkBackground}"
+             Style="{StaticResource ibnMain}"
+             mc:Ignorable="d" 
+             d:DesignHeight="1920" d:DesignWidth="1080">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="36" />
+            <RowDefinition Height="13" />
+            <RowDefinition Height="21" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="27"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Canvas x:Name="ctPagebody">
+
+            <Grid x:Name="ctGdPowerManager" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="600"/>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="600"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="330"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <ctrl:TouchButton x:Name="ctadmin" Command="{Binding DirectNavigateCommand}" CommandParameter="A000_AdminLoginViewModel" Grid.Row="1" Grid.Column="1" Width="180" Height="Auto" Tag="Reset" Foreground="White" Source="pack://siteoforigin:,,,/Resources/Images/bu_reset_on.png" SourceOver="pack://siteoforigin:,,,/Resources/Images/bu_reset.png" Text="{Binding Lang[ADMINISTRATOR].Sentence}" TextBlockStyle="{DynamicResource styleAdminButton}"/>
+                <ctrl:TouchButton x:Name="ctrestart" Command="{Binding ClickCommand}" CommandParameter="restart" Grid.Row="1" Grid.Column="3" Width="180" Height="Auto" Tag="Restart" Foreground="White"  Source="pack://siteoforigin:,,,/Resources/Images/bu_restart_on.png" SourceOver="pack://siteoforigin:,,,/Resources/Images/bu_restart.png" Text="{Binding Lang[MainWindow_restart].Sentence}" TextBlockStyle="{DynamicResource styleAdminButton}"/>
+                <ctrl:TouchButton x:Name="ctshutdown" Command="{Binding ClickCommand}" CommandParameter="shutdown" Grid.Row="3" Grid.Column="1" Width="180" Height="Auto" Tag="Shutdown" Foreground="White"  Source="pack://siteoforigin:,,,/Resources/Images/bu_shutdown_on.png" SourceOver="pack://siteoforigin:,,,/Resources/Images/bu_shutdown.png" Text="{Binding Lang[MainWindow_Shutdown].Sentence}" TextBlockStyle="{DynamicResource styleAdminButton}"/>
+                <ctrl:TouchButton x:Name="ctstandby" Command="{Binding DirectNavigateCommand}" CommandParameter="M100_StartPageViewModel" Grid.Row="3" Grid.Column="3" Width="180" Height="Auto" Tag="Off" Foreground="White"  Source="pack://siteoforigin:,,,/Resources/Images/bu_off_on.png" SourceOver="pack://siteoforigin:,,,/Resources/Images/bu_off.png" Text="{Binding Lang[MainWindow_Off].Sentence}" IsEnabled="True" TextBlockStyle="{DynamicResource styleAdminButton}"/>
+            </Grid>
+
+        </Canvas>
+    </Grid>
+</UserControl>

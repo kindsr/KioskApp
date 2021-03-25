@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="iBeautyNail.Pages.M600_PrintNailSticker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrl="clr-namespace:iBeautyNail.Extensions.Controls"       
+             xmlns:local="clr-namespace:iBeautyNail.Pages"
+             xmlns:gif="clr-namespace:XamlAnimatedGif;assembly=XamlAnimatedGif"
+             Style="{StaticResource ibnMainWhiteWithoutLang}"
+             mc:Ignorable="d" 
+             d:DesignHeight="1920" d:DesignWidth="1080">
+    <Grid x:Name="ctPagebody">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44" />
+            <RowDefinition Height="127" />
+            <RowDefinition Height="23" />
+            <RowDefinition Height="424" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="43" />
+            <RowDefinition Height="127" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="52" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="57" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="41" />
+            <ColumnDefinition Width="132" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="132" />
+            <ColumnDefinition Width="91" />
+            <ColumnDefinition Width="57" />
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Row="1" Grid.Column="4" Stretch="Uniform" 
+               Source="pack://siteoforigin:,,,/Resources/Images/sticker.png"/>
+        <TextBlock Grid.Row="1" Grid.Column="4" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding Lang[M600_ctTbHowToUse].Sentence}" 
+                   Style="{DynamicResource styleTextMain}" />
+
+        <Image Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3" Stretch="Uniform" 
+               Source="pack://siteoforigin:,,,/Resources/Images/nail_desc.png"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbHowToUse1].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbHowToUse2].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+        <TextBlock Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbHowToUse3].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+        <TextBlock Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbHowToUse4].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+        <TextBlock Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbHowToUse5].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+        <TextBlock Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbHowToUse6].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+
+        <Image Grid.Row="11" Grid.Column="4" Stretch="Uniform" 
+               Source="pack://siteoforigin:,,,/Resources/Images/sticker.png"/>
+        <TextBlock Grid.Row="11" Grid.Column="4" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding Lang[M600_ctTbWarning].Sentence}" 
+                   Style="{DynamicResource styleTextMain}" />
+
+        <TextBlock Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbWarningLine1].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+        <TextBlock Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbWarningLine2].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+        <TextBlock Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbWarningLine3].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+        <TextBlock Grid.Row="16" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbWarningLine4].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+        <TextBlock Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbWarningLine5].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+        <TextBlock Grid.Row="18" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbWarningLine6].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+        <TextBlock Grid.Row="19" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbWarningLine7].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+        <TextBlock Grid.Row="20" Grid.Column="1" Grid.ColumnSpan="6"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                   Text="{Binding Lang[M600_ctTbWarningLine8].Sentence}" 
+                   Style="{DynamicResource styleTextMainPink2}"/>
+
+        <TextBlock Text="{Binding PrintedCount}" Grid.Column="4" Grid.Row="21" 
+                   Visibility="{Binding CountDownVisibility}" 
+                   Width="360" FontSize="42" 
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                   Foreground="{DynamicResource styleColorPinkText}" 
+                   TextAlignment="Center" FontWeight="Bold" />
+        <TextBlock Text="{Binding CountDown}" Grid.Column="4" Grid.Row="22" 
+                   Visibility="{Binding CountDownVisibility}" 
+                   Width="360" FontSize="42" 
+                   HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   Foreground="{DynamicResource styleColorPinkText}" 
+                   TextAlignment="Center" FontWeight="Bold" />
+    </Grid>
+
+</UserControl>

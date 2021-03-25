@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iBeautyNail</RootNamespace>
+    <AssemblyName>iBeautyNailLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\x64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\Release\x64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\Release\x86\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.5\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.WinHttp, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Resources\Ext-Library\Interop.WinHttp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=5.11.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.5.11.6\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.11.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Configuration.5.11.2\lib\net45\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.8.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.11.8\lib\net45\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.5.11.1\lib\net45\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.Configuration.5.11.1\lib\net45\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.RegistrationByConvention.5.11.1\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.ServiceLocation.5.11.1\lib\net45\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Devices\CardReader\Datas\KKaoPayModel.cs" />
+    <Compile Include="Devices\CardReader\Datas\PaymentModel.cs" />
+    <Compile Include="Devices\CardReader\EasyCheckCardReader.cs" />
+    <Compile Include="Devices\NailPrinter\EpsonNailPrinter.cs" />
+    <Compile Include="Devices\NailPrinter\PrinterInfo.cs" />
+    <Compile Include="Devices\ReceiptPrinter\HwaLib.cs" />
+    <Compile Include="Devices\ReceiptPrinter\HwasungReceiptPrinter.cs" />
+    <Compile Include="Http\Caching\Cache.cs" />
+    <Compile Include="Http\Caching\CacheData.cs" />
+    <Compile Include="Http\Caching\FileCache.cs" />
+    <Compile Include="Http\Caching\ICache.cs" />
+    <Compile Include="Http\Caching\PassThroughCache.cs" />
+    <Compile Include="Http\Endpoints\ErrorInfoEndpoint\ErrorInfoEndpoint.cs" />
+    <Compile Include="Http\Endpoints\ErrorInfoEndpoint\Models\ErrorInfoRequestObj.cs" />
+    <Compile Include="Http\Endpoints\ErrorInfoEndpoint\Models\ErrorInfoResponseObj.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\ImageEndpoint.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\ImageListEndpoint.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\Models\DatasInfo.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\Models\ImageResponseObj.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\Models\ImageListResponseObj.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\Models\QRImageDataResponseObj.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\Models\QRImageDataTokenInfo.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\Models\ResponseObj.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\Models\SaveImageRequestObj.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\Models\ImageInfo.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\Models\ThumbnailInfo.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\QRImageDataEndpoint.cs" />
+    <Compile Include="Http\Endpoints\ImageEndpoint\SaveImageEndpoint.cs" />
+    <Compile Include="Http\Endpoints\MonitoringInfoEndpoint\Models\MonitoringInfoResponseObj.cs" />
+    <Compile Include="Http\Endpoints\MonitoringInfoEndpoint\Models\MonitoringInfoRequestObj.cs" />
+    <Compile Include="Http\Endpoints\MonitoringInfoEndpoint\Models\MonitoringInfoObj.cs" />
+    <Compile Include="Http\Endpoints\MonitoringInfoEndpoint\MonitoringInfoEndpoint.cs" />
+    <Compile Include="Http\Endpoints\PaymentInfoEndpoint\Models\PaymentInfoRequestObj.cs" />
+    <Compile Include="Http\Endpoints\PaymentInfoEndpoint\Models\PaymentInfoResponseObj.cs" />
+    <Compile Include="Http\Endpoints\PaymentInfoEndpoint\PaymentInfoEndpoint.cs" />
+    <Compile Include="Http\Endpoints\PrintInfoEndPoint\Models\PrintInfoRequestObj.cs" />
+    <Compile Include="Http\Endpoints\PrintInfoEndPoint\Models\PrintInfoResponseObj.cs" />
+    <Compile Include="Http\Endpoints\PrintInfoEndPoint\PrintInfoEndpoint.cs" />
+    <Compile Include="Http\Endpoints\UpdateInfoEndpoint\Models\AppVersionObj.cs" />
+    <Compile Include="Http\Endpoints\UpdateInfoEndpoint\Models\UpdateInfoRequestObj.cs" />
+    <Compile Include="Http\Endpoints\UpdateInfoEndpoint\Models\UpdateInfoResponseObj.cs" />
+    <Compile Include="Http\Endpoints\UpdateInfoEndpoint\Models\UpdateProcessObj.cs" />
+    <Compile Include="Http\Endpoints\UpdateInfoEndpoint\UpdateInfoEndpoint.cs" />
+    <Compile Include="Http\Endpoints\UserInfoEndpoint\Models\Authorities.cs" />
+    <Compile Include="Http\Endpoints\UserInfoEndpoint\Models\UserInfoRequestObj.cs" />
+    <Compile Include="Http\Endpoints\UserInfoEndpoint\Models\UserInfoResponseObj.cs" />
+    <Compile Include="Http\Endpoints\UserInfoEndpoint\UserInfoEndpoint.cs" />
+    <Compile Include="Http\Interfaces\IErrorInfoEndpoint.cs" />
+    <Compile Include="Http\Interfaces\IImageEndpoint.cs" />
+    <Compile Include="Http\Interfaces\IImageListEndpoint.cs" />
+    <Compile Include="Http\Interfaces\INailApi.cs" />
+    <Compile Include="Http\Interfaces\IPaymentInfoEndpoint.cs" />
+    <Compile Include="Http\Interfaces\IPrintInfoEndpoint.cs" />
+    <Compile Include="Http\Interfaces\IQRImageDataEndpoint.cs" />
+    <Compile Include="Http\Interfaces\IRequester.cs" />
+    <Compile Include="Http\Interfaces\ISaveImageEndpoint.cs" />
+    <Compile Include="Http\Interfaces\IMonitoringInfoEndpoint.cs" />
+    <Compile Include="Http\Interfaces\IUpdateInfoEndpoint.cs" />
+    <Compile Include="Http\Interfaces\IUserInfoEndpoint.cs" />
+    <Compile Include="Http\NailApi.cs" />
+    <Compile Include="Http\NailApiException.cs" />
+    <Compile Include="Http\RateLimiter.cs" />
+    <Compile Include="Http\Requester.cs" />
+    <Compile Include="Http\RequesterBase.cs" />
+    <Compile Include="Http\Requesters.cs" />
+    <Compile Include="Interface\IPayment.cs" />
+    <Compile Include="Interface\INailPrinter.cs" />
+    <Compile Include="SDK\DeviceConfigElement.cs" />
+    <Compile Include="SDK\DeviceConfigSection.cs" />
+    <Compile Include="SDK\Device\DeviceStatus.cs" />
+    <Compile Include="SDK\Device\Payment\CardPayment.cs" />
+    <Compile Include="SDK\Device\Printer\NailPrinter.cs" />
+    <Compile Include="SDK\Device\Printer\ReceiptPrinter.cs" />
+    <Compile Include="SDK\SDKManager.cs" />
+    <Compile Include="SDK\SDKManagerStatusCode.cs" />
+    <Compile Include="Devices\NailPrinter\NailPrinterLib.cs" />
+    <Compile Include="Devices\ReceiptPrinter\Datas\ReceiptModel.cs" />
+    <Compile Include="Devices\ReceiptPrinter\RexodReceiptPrinter.cs" />
+    <Compile Include="Devices\ReceiptPrinter\RexodLib.cs" />
+    <Compile Include="UnitTest\HttpTest.cs" />
+    <Compile Include="UnitTest\PaymentTest.cs" />
+    <Compile Include="Utility\Ini.cs" />
+    <Compile Include="Windows\Win32API.cs" />
+    <Compile Include="Windows\WindowMessage.cs" />
+    <Compile Include="Windows\WindowMessageHandler.cs" />
+    <Compile Include="Extensions\AttributeHelper.cs" />
+    <Compile Include="Extensions\EnumExtension.cs" />
+    <Compile Include="Extensions\FastObservableCollection.cs" />
+    <Compile Include="Extensions\ObservableExtensions.cs" />
+    <Compile Include="Extensions\StringHelper.cs" />
+    <Compile Include="Interface\Data.cs" />
+    <Compile Include="Interface\IDeviceController.cs" />
+    <Compile Include="Interface\IDllLibrary.cs" />
+    <Compile Include="Interface\IPrinter.cs" />
+    <Compile Include="Interface\ISendCommand.cs" />
+    <Compile Include="Payment\FirstData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTest\AsyncTest.cs" />
+    <Compile Include="UnitTest\NailPrintTest.cs" />
+    <Compile Include="Extensions\UnityContainerManager.cs" />
+    <Compile Include="UnitTest\RexodTest.cs" />
+    <Compile Include="Utility\FileUtility.cs" />
+    <Compile Include="Utility\ImageUtility.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props'))" />
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>echo Remove directories
+if exist "$(TargetDir)Configs" rmdir "$(TargetDir)Configs" /s /q
+
+echo COPY dlls
+if not exist "$(TargetDir)Ext-Library" md "$(TargetDir)"
+xcopy "$(SolutionDir)Resources\Ext-Library" "$(TargetDir)" /s /e /y
+
+echo COPY Configs
+if not exist "$(TargetDir)Configs" md "$(TargetDir)Configs"
+copy "$(SolutionDir)Resources\Configs\*.*" "$(TargetDir)Configs"</PreBuildEvent>
+  </PropertyGroup>
+</Project>

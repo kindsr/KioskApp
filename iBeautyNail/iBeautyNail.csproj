@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B9D62605-D31A-4EA6-AFEB-BF532F573417}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iBeautyNail</RootNamespace>
+    <AssemblyName>iBeautyNailApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Debug\x64\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\Release\x64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>..\Release\x86\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iBeautyNail.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.3.0.19032, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.3.0.19032, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.6.1513, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.6\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.3.1513, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.1.3\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ShowMeTheXAML, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ShowMeTheXAML.1.0.12\lib\net45\ShowMeTheXAML.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=5.11.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.5.11.6\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.11.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Configuration.5.11.2\lib\net45\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.8.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.11.8\lib\net45\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.5.11.1\lib\net45\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.Configuration.5.11.1\lib\net45\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.RegistrationByConvention.5.11.1\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.ServiceLocation.5.11.1\lib\net45\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="XamlAnimatedGif, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XamlAnimatedGif.1.2.2\lib\net45\XamlAnimatedGif.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Configuration\ApplicationConfigurationSection.cs" />
+    <Compile Include="Configuration\MachineConfigElement.cs" />
+    <Compile Include="Configuration\PageNavigationConfigCollection.cs" />
+    <Compile Include="Configuration\PageNavigationConfigElement.cs" />
+    <Compile Include="Configuration\PageNavigationConfigSection.cs" />
+    <Compile Include="Configuration\PopupConfigElement.cs" />
+    <Compile Include="Configuration\TimeoutConfigElement.cs" />
+    <Compile Include="Configuration\UrlConfigCollection.cs" />
+    <Compile Include="Configuration\UrlConfigElement.cs" />
+    <Compile Include="Datas\DesignListPart.cs" />
+    <Compile Include="Datas\DesignListViewModel.cs" />
+    <Compile Include="Datas\DesignMng.cs" />
+    <Compile Include="Datas\DesignInfo.cs" />
+    <Compile Include="Datas\GlobalVariables.cs" />
+    <Compile Include="Datas\ModelNailSetInfo.cs" />
+    <Compile Include="Datas\InkLimitInfo.cs" />
+    <Compile Include="Datas\Nail.cs" />
+    <Compile Include="Datas\PageElapsedTime.cs" />
+    <Compile Include="Datas\QRImageListInfo.cs" />
+    <Compile Include="Design\DesignDataService.cs" />
+    <Compile Include="Enums\CLICK_COMMAND.cs" />
+    <Compile Include="Enums\FINGER_POSITION.cs" />
+    <Compile Include="Enums\NAVIGATION_TYPE.cs" />
+    <Compile Include="Enums\POPUP_TYPE.cs" />
+    <Compile Include="Enums\SHOW_ERROR_TYPE.cs" />
+    <Compile Include="Enums\TRANSACTION_RESULT.cs" />
+    <Compile Include="Extensions\Attributes\TimeoutAttribute.cs" />
+    <Compile Include="Extensions\Behaviour\MouseBehaviour.cs" />
+    <Compile Include="Extensions\Behaviour\ScrollBarCommandsCanExecuteFixBehavior.cs" />
+    <Compile Include="Extensions\CommandSocketServer.cs" />
+    <Compile Include="Extensions\Controls\AdvancedStretchTextBlock.cs" />
+    <Compile Include="Extensions\Controls\DeviceStatusBar.xaml.cs" />
+    <Compile Include="Extensions\Controls\DragScrollViewer.cs" />
+    <Compile Include="Extensions\Controls\GifImage.cs" />
+    <Compile Include="Extensions\Controls\IconButton.cs" />
+    <Compile Include="Extensions\Controls\ImageButton.cs" />
+    <Compile Include="Extensions\Controls\NumericUpDown.xaml.cs">
+      <DependentUpon>NumericUpDown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\Controls\Popup.xaml.cs" />
+    <Compile Include="Extensions\Controls\TimeControl.xaml.cs">
+      <DependentUpon>TimeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\Controls\TouchButton.xaml.cs" />
+    <Compile Include="Extensions\Controls\ModelNailSet.xaml.cs">
+      <DependentUpon>ModelNailSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\Controls\TouchControl.xaml.cs">
+      <DependentUpon>TouchControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\Converters\DataConverter.cs" />
+    <Compile Include="Extensions\Converters\SizeConverter.cs" />
+    <Compile Include="Extensions\Converters\HeaderToImageConverter.cs" />
+    <Compile Include="Extensions\Converters\ImageConverter.cs" />
+    <Compile Include="Extensions\Converters\DesignConverter.cs" />
+    <Compile Include="Extensions\Converters\PathConverter.cs" />
+    <Compile Include="Extensions\Enums\EnumExtension.cs" />
+    <Compile Include="Extensions\Enums\MaintenanceRole.cs" />
+    <Compile Include="Extensions\SystemCommand.cs" />
+    <Compile Include="Language\LanguageChangedImpl.cs" />
+    <Compile Include="Language\LanguageInfo.cs" />
+    <Compile Include="Language\LanguageMng.cs" />
+    <Compile Include="Language\ObservableDictionary.cs" />
+    <Compile Include="Messages\Exceptions\Enums\VALIDATION_MESSAGE.cs" />
+    <Compile Include="Messages\NavigationMessage.cs" />
+    <Compile Include="Messages\PopupMessage.cs" />
+    <Compile Include="Messages\SelectedNailMessage.cs" />
+    <Compile Include="Messages\SwitchViewMessage.cs" />
+    <Compile Include="Model\DataItem.cs" />
+    <Compile Include="Model\DataService.cs" />
+    <Compile Include="Model\IDataService.cs" />
+    <Compile Include="Pages\A000_AdminLogin.xaml.cs">
+      <DependentUpon>A000_AdminLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\A010_AdminBase.xaml.cs">
+      <DependentUpon>A010_AdminBase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\A020_AdminPopup.xaml.cs">
+      <DependentUpon>A020_AdminPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M050_ProcessingPayment.xaml.cs">
+      <DependentUpon>M050_ProcessingPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M110_IBeautyNailInfo.xaml.cs">
+      <DependentUpon>M110_IBeautyNailInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M211_FullLayout.xaml.cs">
+      <DependentUpon>M211_FullLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M230_WeeklyPickLayout.xaml.cs">
+      <DependentUpon>M230_WeeklyPickLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M240_ArtistPickLayout.xaml.cs">
+      <DependentUpon>M240_ArtistPickLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M290_USBLayout.xaml.cs">
+      <DependentUpon>M290_USBLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M410_EjectCard.xaml.cs">
+      <DependentUpon>M410_EjectCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M700_Finish.xaml.cs">
+      <DependentUpon>M700_Finish.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M600_PrintNailSticker.xaml.cs">
+      <DependentUpon>M600_PrintNailSticker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M500_PrintReceipt.xaml.cs">
+      <DependentUpon>M500_PrintReceipt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M400_CardPayment.xaml.cs">
+      <DependentUpon>M400_CardPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M300_SelectPayment.xaml.cs">
+      <DependentUpon>M300_SelectPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M070_Language.xaml.cs">
+      <DependentUpon>M070_Language.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M000_Init.xaml.cs">
+      <DependentUpon>M000_Init.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M200_SelectDesign.xaml.cs">
+      <DependentUpon>M200_SelectDesign.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M060_MessagePopup.xaml.cs">
+      <DependentUpon>M060_MessagePopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\E400_ErrorBase.xaml.cs">
+      <DependentUpon>E400_ErrorBase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M210_NormalLayout.xaml.cs">
+      <DependentUpon>M210_NormalLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Page2.xaml.cs">
+      <DependentUpon>Page2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\M220_ZigzagLayout.xaml.cs">
+      <DependentUpon>M220_ZigzagLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Q200_QRScan.xaml.cs">
+      <DependentUpon>Q200_QRScan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Q300_SelectImage.xaml.cs">
+      <DependentUpon>Q300_SelectImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\U100_Usage.xaml.cs">
+      <DependentUpon>U100_Usage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemPath.cs" />
+    <Compile Include="ViewModel\A000_AdminLoginViewModel.cs" />
+    <Compile Include="ViewModel\A010_AdminBaseViewModel.cs" />
+    <Compile Include="ViewModel\A020_AdminPopupViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModelBase.cs" />
+    <Compile Include="ViewModel\DesignBaseViewModel.cs" />
+    <Compile Include="ViewModel\M110_IBeautyNailInfoViewModel.cs" />
+    <Compile Include="ViewModel\M211_FullLayoutViewModel.cs" />
+    <Compile Include="ViewModel\M240_ArtistPickLayoutViewModel.cs" />
+    <Compile Include="ViewModel\M290_USBLayoutViewModel.cs" />
+    <Compile Include="ViewModel\M410_EjectCardViewModel.cs" />
+    <Compile Include="ViewModel\M600_PrintNailStickerViewModel.cs" />
+    <Compile Include="ViewModel\M700_FinishViewModel.cs" />
+    <Compile Include="ViewModel\M500_PrintReceiptViewModel.cs" />
+    <Compile Include="ViewModel\M400_CardPaymentViewModel.cs" />
+    <Compile Include="ViewModel\M300_SelectPaymentViewModel.cs" />
+    <Compile Include="ViewModel\M070_LanguageViewModel.cs" />
+    <Compile Include="ViewModel\M000_InitViewModel.cs" />
+    <Compile Include="ViewModel\M200_SelectDesignViewModel.cs" />
+    <Compile Include="ViewModel\M060_MessagePopupViewModel.cs" />
+    <Compile Include="ViewModel\E400_ErrorBaseViewModel.cs" />
+    <Compile Include="ViewModel\IBaseViewModel.cs" />
+    <Compile Include="ViewModel\M100_StartPageViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Q200_QRScanViewModel.cs" />
+    <Compile Include="ViewModel\Q300_SelectImageViewModel.cs" />
+    <Compile Include="ViewModel\U100_UsageViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Pages\M100_StartPage.xaml.cs">
+      <DependentUpon>M100_StartPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Extensions\Controls\DeviceStatusBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Extensions\Controls\NumericUpDown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Extensions\Controls\Popup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Extensions\Controls\TimeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Extensions\Controls\TouchButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Extensions\Controls\ModelNailSet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Extensions\Controls\TouchControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\A000_AdminLogin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\A010_AdminBase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\A020_AdminPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M050_ProcessingPayment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M110_IBeautyNailInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M211_FullLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M230_WeeklyPickLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M240_ArtistPickLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M290_USBLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M410_EjectCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M700_Finish.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M600_PrintNailSticker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M500_PrintReceipt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M400_CardPayment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M300_SelectPayment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M070_Language.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M000_Init.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M200_SelectDesign.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M060_MessagePopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\E400_ErrorBase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M210_NormalLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Page2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M220_ZigzagLayout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Q200_QRScan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Q300_SelectImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\U100_Usage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\AutoScrollListBoxDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Language\en-US.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Language\es-ES.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Language\ja-JP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Language\ko-KR.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Language\zh-CN.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\template.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\M100_StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="iBeautyNail.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iBeautyNailLib\iBeautyNailLib.csproj">
+      <Project>{0cc706d3-cbac-449b-8a63-dfc34ba5aab6}</Project>
+      <Name>iBeautyNailLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>echo Remove directories
+if exist "$(TargetDir)Configs" rmdir "$(TargetDir)Configs" /s /q
+if exist "$(TargetDir)Resources" rmdir "$(TargetDir)Resources" /s /q
+
+echo COPY dlls
+if not exist "$(TargetDir)Ext-Library" md "$(TargetDir)"
+xcopy "$(SolutionDir)Resources\Ext-Library" "$(TargetDir)" /s /e /y
+
+echo COPY Configs
+if not exist "$(TargetDir)Configs" md "$(TargetDir)Configs"
+copy "$(SolutionDir)Resources\Configs\*.*" "$(TargetDir)Configs"
+
+echo COPY Resources
+if not exist "$(TargetDir)Resources" md "$(TargetDir)Resources"
+xcopy "$(SolutionDir)Resources\Resources" "$(TargetDir)Resources" /s /e /y</PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets'))" />
+  </Target>
+  <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

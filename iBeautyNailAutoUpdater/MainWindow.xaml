@@ -1,0 +1,161 @@
+﻿<Window x:Class="iBeautyNailAutoUpdater.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:iBeautyNailAutoUpdater"
+        mc:Ignorable="d"
+        x:Name="windowMain"
+        Title="NailPOP AutoUpdater" Height="1920" Width="1080" 
+        WindowStyle="None" ResizeMode="NoResize" WindowState="Maximized" Topmost="True">
+    <Window.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="Chk_Field" DataType="{x:Type GridViewColumn}">
+                <CheckBox IsChecked="{Binding chk}" />
+            </DataTemplate>
+            <DataTemplate x:Key="FirstCell">
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox IsChecked="{Binding Mode=Twoway, Path=IsSelected,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}}"/>
+                </StackPanel>
+            </DataTemplate>
+            <Style TargetType="{x:Type local:IconButton}">
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Height" Value="24" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type local:IconButton}">
+                            <Border BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}">
+                                <Viewbox Stretch="Uniform">
+                                    <StackPanel Orientation="{TemplateBinding Orientation}" 
+                                                Height="{TemplateBinding Height}"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Background="{TemplateBinding Background}">
+
+                                        <Viewbox Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                 Visibility="{TemplateBinding IconVisibility}" Margin="2 5">
+                                            <Path Stretch="Uniform"
+                                              Fill="{TemplateBinding Foreground}" 
+                                              Data="{TemplateBinding PathData}"/>
+                                        </Viewbox>
+
+                                        <ContentControl Content="{TemplateBinding Text}" 
+                                                        Visibility="{TemplateBinding TextVisibility}"
+                                                        HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                                        Margin="2"/>
+                                    </StackPanel>
+                                </Viewbox>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Opacity" Value="0.5"/>
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="False">
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="textStyle" TargetType="Button">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="Width" Value="145"/>
+                <Setter Property="Height" Value="54"/>
+                <Setter Property="Margin" Value="5,0"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border BorderBrush="Gray" BorderThickness="5" CornerRadius="10">
+                                <TextBlock Text="{TemplateBinding Content}"
+                                           Foreground="White"
+                                           Margin="4,4"
+                                           TextAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="12" 
+                                           FontWeight="ExtraBold"
+                                           TextWrapping="Wrap"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="620"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image x:Name="tbTitleImage" Grid.Row="1" Grid.Column="1" 
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+               Source="pack://application:,,,/con_topbg.jpg"/>
+        <TextBlock x:Name="tbTitle" Grid.Row="1" Grid.Column="1" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Background="Transparent" Foreground="White" FontWeight="ExtraBold" FontSize="24"
+                   Width="200" Height="Auto" TextWrapping="Wrap" Text="Auto Updater" Margin="40,0,0,2"
+                   TextAlignment="Center" />
+        <local:IconButton x:Name="btnClose" Grid.Row="1" Grid.Column="1" Width="40" Height="40"
+                          HorizontalAlignment="Right" VerticalAlignment="Center"
+                          Background="Transparent" Foreground="White"
+                          TextVisibility="Collapsed" IconVisibility="Visible"
+                          PathData="M8 16 L24 32 L8 48 L16 56 L32 40 L48 56 L56 48 L40 32 L56 16 L48 8 L32 24 L16 8 Z"
+                          Margin="20,0" Click="btnClose_Click"/>
+
+        <Grid Grid.Row="2" Grid.Column="1">
+            <ProgressBar x:Name="PartialDownloadProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,3" />
+            <TextBlock x:Name="txtPartial" Foreground="DarkGray" TextAlignment="Center" 
+                       HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="1">
+            <ProgressBar x:Name="TotalDownloadProgressBar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,3" />
+            <TextBlock x:Name="txtTotal" Foreground="DarkGray" TextAlignment="Center"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Image Grid.Row="4" Grid.Column="1" Grid.RowSpan="2" Stretch="Fill"
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+               Source="pack://application:,,,/con_bottombg.jpg"/>
+        <StackPanel Grid.Row="4" Grid.Column="1" Grid.RowSpan="2" Orientation="Horizontal" Background="Transparent">
+            <Button x:Name="btnUpdate" Style="{StaticResource textStyle}" 
+                    Content="Update" Click="btnUpdate_Click" />
+            <Button x:Name="btnRun" Style="{StaticResource textStyle}" 
+                    Content="Run" Click="btnRun_Click" />
+            <Button x:Name="btnCreateUpdateJson" Style="{StaticResource textStyle}" 
+                    Content="Create Update Json" Click="btnCreateJson_Click" />
+            <Button x:Name="btnCreateDeleteJson" Style="{StaticResource textStyle}" 
+                    Content="Create Delete Json" Click="btnDeleteJson_Click" />
+        </StackPanel>
+
+        <ListView Grid.Row="7" Grid.Column="1" x:Name="listChkbox" Background="Transparent" ItemsSource="{Binding}" SelectionMode="Multiple" Margin="0,0,0,39" Visibility="Hidden">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="" Width="Auto"  CellTemplate="{StaticResource FirstCell}"/>
+                    <GridViewColumn Header="List" Width="Auto" DisplayMemberBinding="{Binding zzFileName}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

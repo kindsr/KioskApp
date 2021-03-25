@@ -1,0 +1,112 @@
+﻿<Application x:Class="iBeautyNail.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:view="clr-namespace:iBeautyNail.Pages"
+             xmlns:viewModel="clr-namespace:iBeautyNail.ViewModel" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converter="clr-namespace:iBeautyNail.Extensions.Converters"
+			 xmlns:ignore="http://www.galasoft.ch/ignore"
+             StartupUri="MainWindow.xaml"
+             mc:Ignorable="d ignore">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />-->
+
+                <ResourceDictionary Source="Styles/Language/en-US.xaml" />
+                <ResourceDictionary Source="Styles/Language/es-ES.xaml" />
+                <ResourceDictionary Source="Styles/Language/ja-JP.xaml" />
+                <ResourceDictionary Source="Styles/Language/zh-CN.xaml" />
+                <ResourceDictionary Source="Styles/Language/ko-KR.xaml" />
+                
+                <ResourceDictionary Source="Styles/template.xaml" />
+                <ResourceDictionary Source="Styles/AutoScrollListBoxDictionary.xaml" />
+                <ResourceDictionary Source="Styles/Generic.xaml" />
+
+                <ResourceDictionary>
+                    <viewModel:ViewModelLocator x:Key="Locator" d:IsDataSource="True"  />
+
+                    <DataTemplate DataType="{x:Type viewModel:M000_InitViewModel}">
+                        <view:M000_Init/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:M100_StartPageViewModel}">
+                        <view:M100_StartPage/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:M110_IBeautyNailInfoViewModel}">
+                        <view:M110_IBeautyNailInfo/>
+                    </DataTemplate>
+                    
+                    <DataTemplate DataType="{x:Type viewModel:M200_SelectDesignViewModel}">
+                        <view:M200_SelectDesign/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:M300_SelectPaymentViewModel}">
+                        <view:M300_SelectPayment/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:M400_CardPaymentViewModel}">
+                        <view:M400_CardPayment/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:M410_EjectCardViewModel}">
+                        <view:M410_EjectCard/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:M500_PrintReceiptViewModel}">
+                        <view:M500_PrintReceipt/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:M600_PrintNailStickerViewModel}">
+                        <view:M600_PrintNailSticker/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:M700_FinishViewModel}">
+                        <view:M700_Finish/>
+                    </DataTemplate>
+                    
+                    <DataTemplate DataType="{x:Type viewModel:M060_MessagePopupViewModel}">
+                        <view:M060_MessagePopup/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:M070_LanguageViewModel}">
+                        <view:M070_Language/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:E400_ErrorBaseViewModel}">
+                        <view:E400_ErrorBase/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:Q200_QRScanViewModel}">
+                        <view:Q200_QRScan/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:Q300_SelectImageViewModel}">
+                        <view:Q300_SelectImage/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:A000_AdminLoginViewModel}">
+                        <view:A000_AdminLogin/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:A010_AdminBaseViewModel}">
+                        <view:A010_AdminBase/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:A020_AdminPopupViewModel}">
+                        <view:A020_AdminPopup/>
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type viewModel:U100_UsageViewModel}">
+                        <view:U100_Usage/>
+                    </DataTemplate>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

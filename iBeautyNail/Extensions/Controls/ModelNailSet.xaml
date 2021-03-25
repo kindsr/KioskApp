@@ -1,0 +1,78 @@
+﻿<UserControl x:Name="modelNailSetControl"  x:Class="iBeautyNail.Extensions.Controls.ModelNailSet"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:iBeautyNail.Extensions.Controls"
+             xmlns:vm="clr-namespace:iBeautyNail.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="587" d:DesignWidth="1080">
+
+    <Grid>
+        <ListBox>
+            <ListBox.Resources>
+                <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </ListBox.Resources>
+
+            <StackPanel Width="984" Height="587" Orientation="Vertical">
+                <!--DataContext="{Binding CurrentPageViewModel}">-->
+                <StackPanel>
+                    <Image x:Name ="imgModelSource" Width="984" Height="407" Source="{Binding ModelSource, ElementName=modelNailSetControl}" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                           >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseClick">
+                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectModelNailDesignCommand}" CommandParameter="{Binding Path=Source}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                </StackPanel>
+
+                <StackPanel  x:Name="fileContainer" Orientation="Horizontal" Height="170" HorizontalAlignment="Center" Width="Auto" VerticalAlignment="Bottom">
+
+                    <Image x:Name="imgNail1Source"  Width="76" Height="140" Source="{Binding NailSource1, ElementName=modelNailSetControl}"  Margin="0,0,0,0" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseClick">
+                                <i:InvokeCommandAction Command="{Binding SelectModelNailDesignCommand}" CommandParameter="{Binding }" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+
+                    <Image x:Name="imgNail2Source" Width="76" Height="140" Source="{Binding NailSource2, ElementName=modelNailSetControl}"  Margin="10,0,0,0" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseClick">
+                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=ModelNailSet.SelectModelNailDesignCommand}" CommandParameter="{Binding}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+
+                    <Image x:Name="imgNail3Source" Width="76" Height="140" Source="{Binding NailSource3, ElementName=modelNailSetControl}" Margin="10,0,0,0" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseUp">
+                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectModelNailDesignCommand}" CommandParameter="{Binding}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+
+                    <Image x:Name="imgNail4Source" Width="76" Height="140" Source="{Binding NailSource4, ElementName=modelNailSetControl}" Margin="10,0,0,0" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseUp">
+                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectModelNailDesignCommand}" CommandParameter="{Binding}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+
+                    <Image x:Name="imgNail5Source" Width="76" Height="140" Source="{Binding NailSource5, ElementName=modelNailSetControl}"  Margin="10,0,0,0" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseUp">
+                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectModelNailDesignCommand}" CommandParameter="{Binding}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                </StackPanel>
+            </StackPanel>
+        </ListBox>
+    </Grid>
+</UserControl>

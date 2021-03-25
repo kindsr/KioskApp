@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="iBeautyNail.Pages.Q200_QRScan"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrl="clr-namespace:iBeautyNail.Extensions.Controls"       
+             xmlns:local="clr-namespace:iBeautyNail.Pages"
+             xmlns:gif="clr-namespace:XamlAnimatedGif;assembly=XamlAnimatedGif"
+             Style="{StaticResource ibnMainWhite}"
+             mc:Ignorable="d" 
+             d:DesignHeight="1920" d:DesignWidth="1080" Loaded="UserControl_Loaded">
+    <Grid x:Name="ctPagebody">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="406" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="33" />
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="RequestQRScan" Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <!--<RowDefinition Height="150" />-->
+                <RowDefinition Height="12" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="285" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="285" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="txtScanText" Grid.Row="0" Width="0" Height="0" Text="{Binding ScanText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" IsTabStop="False" AllowDrop="False"/>
+
+            <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="3"  VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/Images/printer01_back.png" />
+
+            <ctrl:AdvancedStretchTextBlock Text="{Binding Lang[Q200_ctTbScanQRCode].Sentence}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Style="{DynamicResource styleTextMainPink}" />
+
+            <Image Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/Images/qrscan.png" Stretch="Uniform" />
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="iBeautyNail.Pages.A000_AdminLogin"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:iBeautyNail.Pages"
+             xmlns:ctrl="clr-namespace:iBeautyNail.Extensions.Controls"
+             xmlns:gif="clr-namespace:XamlAnimatedGif;assembly=XamlAnimatedGif"
+             Style="{StaticResource Empty}"
+             mc:Ignorable="d" 
+             d:DesignHeight="1920" d:DesignWidth="1080">
+    <Canvas x:Name="ctPagebody">
+        <TextBlock x:Name="ctTbMain" Text="{Binding Lang[A000_MAIN].Sentence}" Canvas.Left="0" Canvas.Top="50" Width="{Binding Path=ActualWidth, ElementName=ctPagebody}" Style="{DynamicResource styleTextStandby}" />
+
+        <Grid x:Name="ctGdKeypad" Canvas.Left="140" Canvas.Top="400" Width="800" Height="650" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.RowSpan="13" Grid.Column="0" Grid.ColumnSpan="8" Style="{DynamicResource stylePanel}" Background="{DynamicResource styleColorButtonBackground1}" ctrl:ImageButton.ImagePath="pack://siteoforigin:,,,/Resources/Images/Blank.png" />
+
+            <Button x:Name="ctBtClose" Grid.Row="0" Grid.Column="7" Width="50" Height="50" Tag="12" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground2}" Content="X" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtClose, Path=Tag}" />
+
+            <Border Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="6" Style="{DynamicResource styleBorder}">
+                <TextBlock x:Name="ctTbInput" Style="{DynamicResource styleTextStandby}" Text="{Binding InputValue}" />
+            </Border>
+
+            <Button x:Name="ctBtKeypad1" Grid.Row="4" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Width="195" Height="95" Tag="{Binding Number1}" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground1}" Content="{Binding Number1}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad1, Path=Tag}" />
+            <Button x:Name="ctBtKeypad2" Grid.Row="4" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="2" Width="195" Height="95" Tag="{Binding Number2}" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground1}" Content="{Binding Number2}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad2, Path=Tag}" />
+            <Button x:Name="ctBtKeypad3" Grid.Row="4" Grid.RowSpan="2" Grid.Column="5" Grid.ColumnSpan="2" Width="195" Height="95" Tag="{Binding Number3}" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground1}" Content="{Binding Number3}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad3, Path=Tag}" />
+            <Button x:Name="ctBtKeypad4" Grid.Row="6" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Width="195" Height="95" Tag="{Binding Number4}" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground1}" Content="{Binding Number4}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad4, Path=Tag}" />
+            <Button x:Name="ctBtKeypad5" Grid.Row="6" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="2" Width="195" Height="95" Tag="{Binding Number5}" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground1}" Content="{Binding Number5}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad5, Path=Tag}" />
+            <Button x:Name="ctBtKeypad6" Grid.Row="6" Grid.RowSpan="2" Grid.Column="5" Grid.ColumnSpan="2" Width="195" Height="95" Tag="{Binding Number6}" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground1}" Content="{Binding Number6}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad6, Path=Tag}" />
+            <Button x:Name="ctBtKeypad7" Grid.Row="8" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Width="195" Height="95" Tag="{Binding Number7}" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground1}" Content="{Binding Number7}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad7, Path=Tag}" />
+            <Button x:Name="ctBtKeypad8" Grid.Row="8" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="2" Width="195" Height="95" Tag="{Binding Number8}" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground1}" Content="{Binding Number8}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad8, Path=Tag}" />
+            <Button x:Name="ctBtKeypad9" Grid.Row="8" Grid.RowSpan="2" Grid.Column="5" Grid.ColumnSpan="2" Width="195" Height="95" Tag="{Binding Number9}" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground1}" Content="{Binding Number9}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad9, Path=Tag}" />
+            <Button x:Name="ctBtKeypad0" Grid.Row="10" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="2" Width="195" Height="95" Tag="{Binding Number0}" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground1}" Content="{Binding Number0}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad0, Path=Tag}" />
+
+            <Button x:Name="ctBtKeypadDelete" Grid.Row="10" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Width="195" Height="95" Tag="10" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground2}" Content="{Binding Lang[A000_KEYPADDELETE].Sentence}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypadDelete, Path=Tag}" />
+            <Button x:Name="ctBtKeypadSubmit" Grid.Row="10" Grid.RowSpan="2" Grid.Column="5" Grid.ColumnSpan="2" Width="195" Height="95" Tag="11" Style="{DynamicResource styleButtonPassword}" Background="{DynamicResource styleColorButtonBackground4}" Content="{Binding Lang[A000_KEYPADSUBMIT].Sentence}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypadSubmit, Path=Tag}" />
+        </Grid>
+    </Canvas>
+</UserControl>

@@ -1,0 +1,147 @@
+﻿;
+; Language File : zh-CN
+; Version         : 1602021359
+;
+; Notes
+; - File name format: 'ISO 639-1 alpha-2'-'ISO 3166 alpha-2'.lang
+;	https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+;	https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+; - File encoding shoud be the UNICODE
+; - Using ';' at front of the line for comments
+; - DO NOT USE '=' character in the sentences
+
+; English language name
+LANG1=CHN
+
+; Native langauge name
+LANG2=简体中文
+
+; Common sentences
+HOME=主页
+HELP=帮助
+PREVIOUS=上一步
+NEXT=下一步
+CANCEL=取消
+CONFIRM=确认
+YES=是
+NO=没有
+PAYMENT=付款
+ADMINISTRATOR=管理员
+
+; Design List
+SOLID=Solid
+FULL=Full Color
+GRADATION=Gradation
+VACANCE=Vacance
+LUXURY=Luxury
+CUTE=Cute
+WATERMARBLE=Water Marble
+STRIPE=Stripe
+FRENCH=French
+WATERDECAL=Water Decal
+ART=Art
+USB=USB
+TASTE=Taste
+GLITTER=Glitter
+PATTERN=Pattern
+WEEKLYPICK=Weekly Pick
+
+M100_ctBtStart=开始
+M100_ctBtQrScan=扫描二维码
+M100_ctBtUsage=如何使用
+
+M200_ctTbMyDesign=我的选择
+M200_ctTbDesignPrice=付款金额
+M200_ctTbDesignCurrency=元
+M200_ctTbDesignCount=选择数量
+M200_ctTbDesignMesure=个
+M200_ctTbClearAll=全部删除
+M290_ctTbInsertUSB=请插入USB
+
+M300_ctTbDesignConfirm=请确认设计
+M300_ctTbDesignConfirm2=请选择付款方式
+M300_ctTbPrintCount=打印数量
+M300_ctTbWaitingImage=图片在准备中，请稍后。
+M400_ctTbPayment=请插入信用卡
+M400_ctTbPayment2=或 使用手机支付
+M400_ctTbCardInsert=请把信用卡像图片一样插入IC卡读卡器。
+M400_ctTbProcessingPayment=请稍等
+M400_ctTbProcessingPayment2=正在读卡中...
+M400_ctTbFinish=请取走您的信用卡
+M410_ctTbScanQRCode=请扫描您的二维码
+
+M500_ctTBPrintYN=要打印收据吗？
+M500_ctTbPrintReceipt=付款成功
+M500_ctTbConfirmReceipt=请检查收据
+M500_ctTbPlacePrintReceipt=出票处
+
+M600_ctTbPrintNailSticker=美甲贴打印中
+M600_ctTbWaitForaWhile=请稍候
+M600_ctTbHowToUse=美甲贴的佩戴方法
+M600_ctTbHowToUse1=   
+M600_ctTbHowToUse2=   
+M600_ctTbHowToUse3=   
+M600_ctTbHowToUse4=   
+M600_ctTbHowToUse5=   
+M600_ctTbHowToUse6=   
+M600_ctTbWarning=使用贴纸的注意事项
+M600_ctTbWarningLine1=^^^^^^^^^^1. 由于使用时长和指甲状况的不同，指甲可能受损
+M600_ctTbWarningLine2=   
+M600_ctTbWarningLine3=^^^^^^^^^^2. 如出现红斑、肿胀、瘙痒、刺激等反应，请立即停止使用。
+M600_ctTbWarningLine4=   
+M600_ctTbWarningLine5=^^^^^^^^^^3. 请勿存放在高温或寒冷的地方，并避免阳光直射。
+M600_ctTbWarningLine6=   
+M600_ctTbWarningLine7=   
+M600_ctTbWarningLine8=   
+
+M700_ctTbLookForNailSticker=请取走您的美甲贴
+M700_ctTbCallManager=如果输出状态异常，请联系管理员
+
+Q200_ctTbScanQRCode=请扫描您的二维码
+Q300_ctTbSelectImage=选择要打印的图片
+Q300_ctTbSelectImage2=并选择付款方式
+Q300_ctTbPrintCount=打印数量
+
+A000_MAIN=管理者密码
+A000_KEYPADDELETE=删除
+A000_KEYPADSUBMIT=确认
+
+VALIDATION_TITLE_ERROR=错误 
+VALIDATION_TITLE_INFO=信息
+VALIDATION_TITLE_WARNNING=警告
+
+VALIDATION_FULL_DESIGN=图片都选好了
+VALIDATION_PRINT_RECEIPT=要打印收据吗？
+
+VALIDATION_CARD_PAYMENT_FAILED=无效卡
+VALIDATION_FIRST_PAGE=回到首页
+
+VALIDATION_WAIT_FOR_ADMIN=正在打印中...  请稍候
+
+VALIDATION_EXPIRED_QR_CODE=二维码已失效
+VALIDATION_NOT_VALID_QR_CODE=二维码不正确
+IMAGE_DOWNLOADING=图片加载中...
+
+VALIDATION_PRINT_FAILED=Failed to print nail sticker.
+CALL_THE_MANAGER=Please call the manager in charge.
+VALIDATION_EMPTY_PAPER=没有纸。
+VALIDATION_EMPTY_RECEIPT_PAPER=Empty receipt paper.
+
+;------------------------------------------------------------------------
+
+MainWindow_reset=重置
+MainWindow_restart=系统关机
+MainWindow_Shutdown=结束
+MainWindow_Off=返回初始页面
+MainWindow_languageTitle=请选择语言
+
+ER4001_MAIN=停止运营
+
+AD8000_MAIN=管理员密码
+AD8000_KEYPADDELETE=删除
+AD8000_KEYPADSUBMIT=确认
+
+M200_Comment1=If you push the picture, it is applied set designs recommended.
+M200_Comment2=You can select the nail design one by one.
+M200_Comment3=If you push the X button, it is able to insert another design.
+M200_Comment4=Look around the nail designs with various design theme.

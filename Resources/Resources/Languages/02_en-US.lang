@@ -1,0 +1,148 @@
+﻿;
+; Language File : en-US
+; Version         : 1602021359
+;
+; Notes
+; - File name format: 'ISO 639-1 alpha-2'-'ISO 3166 alpha-2'.lang
+;	https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+;	https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+; - File encoding shoud be the UNICODE
+; - Using ';' at front of the line for comments
+; - DO NOT USE '=' character in the sentences
+
+; English language name
+LANG1=ENG
+
+; Native langauge name
+LANG2=English
+
+; Common sentences
+HOME=Home
+HELP=Help
+PREVIOUS=Back
+NEXT=Next
+CANCEL=Cancel
+CONFIRM=Confirm
+YES=Yes
+NO=No
+PAYMENT=Payment
+ADMINISTRATOR=Administrator
+
+; Design List
+SOLID=Solid
+FULL=Full Color
+GRADATION=Gradation
+VACANCE=Vacance
+LUXURY=Luxury
+CUTE=Cute
+WATERMARBLE=Water Marble
+STRIPE=Stripe
+FRENCH=French
+WATERDECAL=Water Decal
+ART=Art
+USB=USB
+TASTE=Taste
+GLITTER=Glitter
+PATTERN=Pattern
+WEEKLYPICK=Weekly Pick
+
+M100_ctBtStart=Start
+M100_ctBtQrScan=QR Scan
+M100_ctBtUsage=How To Use
+
+M200_ctTbMyDesign=My Designs
+M200_ctTbDesignPrice=Total Price
+M200_ctTbDesignCurrency=won
+M200_ctTbDesignCount=Selected
+M200_ctTbDesignMesure=ea
+M200_ctTbClearAll=Clear All
+M290_ctTbInsertUSB= Please insert your USB.
+
+M300_ctTbDesignConfirm=Confirm the designs,
+M300_ctTbDesignConfirm2=and select the payment method.
+M300_ctTbPrintCount=Number of prints
+M300_ctTbWaitingImage=Please wait for a while generating image.
+
+M400_ctTbPayment=Please insert the credit card,
+M400_ctTbPayment2=or proceed with your mobile payment app.
+M400_ctTbCardInsert=Please insert the credit card into the IC card reader as shown in the picture.
+M400_ctTbProcessingPayment=Please wait for a while
+M400_ctTbProcessingPayment2=reading the credit card.
+M400_ctTbFinish=Please remove your credit card.
+M410_ctTbScanQRCode=Please scan your QR code.
+
+M500_ctTBPrintYN=Would you like to print the receipt?
+M500_ctTbPrintReceipt=Complete payment.
+M500_ctTbConfirmReceipt=Please check the receipt.
+M500_ctTbPlacePrintReceipt=Where the receipt comes from here
+
+M600_ctTbPrintNailSticker=Printing nail sticker.
+M600_ctTbWaitForaWhile=Please wait.
+M600_ctTbHowToUse=How to use the nail sticker
+M600_ctTbHowToUse1=1. After arranging the nail surface cleanly, 
+M600_ctTbHowToUse2=^^^remove the oil and moisture from the surface with alcohol or remover.
+M600_ctTbHowToUse3=2. Choose a piece that is slightly smaller than your nail size.
+M600_ctTbHowToUse4=3. Attach from the cuticle direction to the fingernail tip, then carefully attach both sides.
+M600_ctTbHowToUse5=4. Remove the remaining part by placing the nail file and sweeping it in one direction.
+M600_ctTbHowToUse6=5. Apply top gel and dry it on the LED lamp for longer use.
+M600_ctTbWarning=Notes on using the sticker
+M600_ctTbWarningLine1=1. The Rest of pieces are pu in plastic bag after use, stored in a shaded place, and used within 60 days.
+M600_ctTbWarningLine2=2. Keep out of reach of children.
+M600_ctTbWarningLine3=3. Do not store in high temperature, low temperature, and direct sunlight.
+M600_ctTbWarningLine4=4. Sweat, moisture, hand cream, oil, etc. on your hands are the main causes that can reduce adhesion.
+M600_ctTbWarningLine5=^^^Wash your hands with soap and completely remove oil and moisture before use.
+M600_ctTbWarningLine6=5. Age Restriction Infants over 14 years old, and who can use it with a guardian less than 14 years old.
+M600_ctTbWarningLine7=6. If there is a problem with this product, you may receive an exchange or compensation 
+M600_ctTbWarningLine8=^^^in accordance with the 'Consumer Dispute Resolution Standard' announced by the Fair Trade Commission.
+
+M700_ctTbLookForNailSticker=Take your nail sticker.
+M700_ctTbCallManager=If the output status is abnormal, contact the administrator.
+
+Q200_ctTbScanQRCode=Please scan your QR code.
+Q300_ctTbSelectImage=Select images that will be printed
+Q300_ctTbSelectImage2=and select the payment method.
+Q300_ctTbPrintCount=Number of prints
+
+A000_MAIN=Administrator Password
+A000_KEYPADDELETE=Delete
+A000_KEYPADSUBMIT=Submit
+
+VALIDATION_TITLE_ERROR=Error
+VALIDATION_TITLE_INFO=Information
+VALIDATION_TITLE_WARNNING=Warning
+
+VALIDATION_FULL_DESIGN=Selected all designs.
+VALIDATION_PRINT_RECEIPT=Would you like to print the receipt?
+
+VALIDATION_CARD_PAYMENT_FAILED=Invalid card.
+VALIDATION_FIRST_PAGE=It is going to the first page.
+
+VALIDATION_WAIT_FOR_ADMIN=Printing the selected image. Please wait.
+
+VALIDATION_EXPIRED_QR_CODE=The validity of the QR code has expired.
+VALIDATION_NOT_VALID_QR_CODE=It is not valid QR code.
+IMAGE_DOWNLOADING=Downloading images.
+
+VALIDATION_PRINT_FAILED=Failed to print nail sticker.
+CALL_THE_MANAGER=Please call the manager in charge.
+VALIDATION_EMPTY_PAPER=Empty paper.
+VALIDATION_EMPTY_RECEIPT_PAPER=Empty receipt paper.
+
+;------------------------------------------------------------------------
+
+MainWindow_reset=Reset
+MainWindow_restart=Shutdown
+MainWindow_Shutdown=Exit
+MainWindow_Off=Go to Main
+MainWindow_languageTitle=Choose Your Language
+
+ER4001_MAIN=Service is not available
+
+AD8000_MAIN=Administrator Password
+AD8000_KEYPADDELETE=Delete
+AD8000_KEYPADSUBMIT=Submit
+
+M200_Comment1=If you push the picture, it is applied set designs recommended.
+M200_Comment2=You can select the nail design one by one.
+M200_Comment3=If you push the X button, it is able to insert another design.
+M200_Comment4=Look around the nail designs with various design theme.

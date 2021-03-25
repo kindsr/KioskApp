@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="iBeautyNail.Extensions.Controls.TimeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:iBeautyNail.Extensions.Controls"
+             x:Name="UserControl"
+             Height="Auto" Width="Auto" >
+    <Grid x:Name="LayoutRoot" Width="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.4*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="hour" Focusable="True" KeyDown="Down" Grid.RowSpan="2">
+            <TextBlock x:Name="mmTxt" TextWrapping="Wrap" Text="{Binding Path=Hours, ElementName=UserControl, Mode=Default}"
+                       TextAlignment="Center" VerticalAlignment="Center" FontFamily="Goudy Stout"
+                       FontSize="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=FontSize, FallbackValue=14 }"/>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.RowSpan="2">
+            <TextBlock x:Name="sep1" TextWrapping="Wrap" VerticalAlignment="Center" Background="{x:Null}" FontFamily="Goudy Stout"
+                       FontSize="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=FontSize, FallbackValue=14 }"
+                       Text=":" TextAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Column="2" x:Name="min" Focusable="True" KeyDown="Down" Grid.RowSpan="2">
+            <TextBlock x:Name="ddTxt"  TextWrapping="Wrap" Text="{Binding Path=Minutes, ElementName=UserControl, Mode=Default}"
+                       TextAlignment="Center" VerticalAlignment="Center" FontFamily="Goudy Stout" 
+                       FontSize="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=FontSize, FallbackValue=14 }"/>
+        </Grid>
+
+        <Grid Grid.Column="3" Grid.RowSpan="2">
+            <TextBlock x:Name="sep2"  TextWrapping="Wrap" VerticalAlignment="Center" Background="{x:Null}" FontFamily="Goudy Stout"
+                       FontSize="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=FontSize, FallbackValue=14 }"
+                       Text=":" TextAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Column="4" Name="sec" Focusable="True" KeyDown="Down" Grid.RowSpan="2">
+            <TextBlock x:Name="yyTxt"  TextWrapping="Wrap" Text="{Binding Path=Seconds, ElementName=UserControl, Mode=Default}"
+                       TextAlignment="Center" VerticalAlignment="Center" FontFamily="Goudy Stout"
+                       FontSize="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=FontSize, FallbackValue=14 }"/>
+        </Grid>
+
+        <Image Name="upButton" KeyDown="Down" MouseUp="upButton_Click" Grid.Column="5" Grid.Row="0" 
+               Source="pack://siteoforigin:,,,/Resources/Images/up.png" Stretch="Fill" 
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,3"/>
+        <Image Name="downButton" KeyDown="Down" MouseUp="downButton_Click" Grid.Column="5" Grid.Row="1" 
+               Source="pack://siteoforigin:,,,/Resources/Images/down.png" Stretch="Fill" 
+               HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="3,3"/>
+    </Grid>
+</UserControl>

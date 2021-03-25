@@ -1,0 +1,50 @@
+﻿<?xml version="1.0"?>
+  <log4net>
+    
+    <!--
+    HOWTO: 모듈별로 appender를 정의하고, <root>에 해당 appender를 reference시키고, 해당 모듈이 사용할 logger를 만들어 reference 시킨다.
+           .cs 에서는 logger의 name을 참조하여 ILog를 생성해 사용한다.
+           Ex.)
+                  XmlConfigurator.Configure(new System.IO.FileInfo(AppDomain.CurrentDomain.BaseDirectory + @"\Configs\log4net.xml"));
+                  log = log4net.LogManager.GetLogger(log4theCORE);
+    
+    <file> : 로그 파일의 경로와 파일 이름 prefix
+    <appendToFile> : 로그 파일이 이미 존재할 때 append할 지 여부
+    <datePattern> : prefix 뒤에 붙는 날짜 부분의 형식
+    <rollingStyle> : Rolling 단위 지정
+    <staticLogFileName> : 로그 파일 이름의 고정 여부
+    <layout> : 로그 형식, https://logging.apache.org/log4net/release/sdk/log4net.Layout.PatternLayout.html
+    -->
+    
+    <!-- TheCore_ appender -->
+    <appender name="LogFileAppender" type="log4net.Appender.RollingFileAppender">
+      <file type="log4net.Util.PatternString" value="Logs\%date{yyyyMMdd}\\iBeautyNail.log" />
+      <appendToFile value="true" />
+      <datePattern value="yyyyMMdd'.log'" />
+      <rollingStyle value="Date" />
+      <staticLogFileName value="true" />
+      <layout type="log4net.Layout.PatternLayout">
+        <param name="ConversionPattern" value="%-5p%d{ yyyy-MM-dd HH:mm:ss} – [%thread] %m %n%class.%method%n" />
+      </layout>
+    </appender>
+
+    <!-- iBeautyNail Console appender -->
+    <appender name="ConsoleLog" type="log4net.Appender.ConsoleAppender">
+      <layout type="log4net.Layout.PatternLayout">
+        <param name="ConversionPattern" value="%-5p%d{ yyyy-MM-dd HH:mm:ss} – [%thread] %m %n%class.%method%n" />
+      </layout>
+    </appender>
+
+    <logger name="iBeautyNail" additivity="false">
+      <appender-ref ref="ConsoleLog" />
+      <appender-ref ref="LogFileAppender" />
+      <level value="DEBUG" />
+    </logger>
+    
+    <root>
+      <appender-ref ref="ConsoleLog" />
+      <appender-ref ref="LogFileAppender" />
+    </root>
+
+</log4net>
+

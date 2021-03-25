@@ -1,0 +1,1494 @@
+﻿<UserControl x:Class="iBeautyNail.Pages.A010_AdminBase"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:iBeautyNail.Pages"
+             xmlns:ctrl="clr-namespace:iBeautyNail.Extensions.Controls"
+             xmlns:converter="clr-namespace:iBeautyNail.Extensions.Converters"
+             xmlns:datas="clr-namespace:iBeautyNail.Datas"
+             xmlns:gif="clr-namespace:XamlAnimatedGif;assembly=XamlAnimatedGif"
+             xmlns:input="clr-namespace:System.Windows.Input;assembly=PresentationCore"
+             Style="{StaticResource ibnAdmin}"
+             mc:Ignorable="d" 
+             d:DesignHeight="1920" d:DesignWidth="1080" >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converter:SizeConverter x:Key="SizeConverter"/>
+            <Style x:Key="tabControlStyle" TargetType="{x:Type TabControl}">
+                <Setter Property="Background" Value="{DynamicResource styleWhiteBackground}" />
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="FontWeight" Value="Normal" />
+                <Setter Property="BorderThickness" Value="0,0,0,0"/>
+                <Setter Property="TabStripPlacement" Value="Bottom" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <!--<Setter Property="Foreground" Value="{DynamicResource styleColorWhiteText}" />-->
+            </Style>
+
+            <Style x:Key="tabItemStyle" TargetType="{x:Type TabItem}">
+                <Setter Property="Background" Value="#FFF48FB1"/>
+                <Setter Property="Height" Value="100"/>
+                <Setter Property="Width" Value="309"/>
+                <Setter Property="Foreground" Value="{DynamicResource styleColorInit}" />
+                <Setter Property="BorderThickness" Value="0,0,0,0"/>
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="270" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TabItem}">
+                            <Border Name="Border" CornerRadius="0,0,20,20" BorderBrush="Transparent" BorderThickness="3,3,3,3">
+                                <!--make a correct render thanks to data binding -->
+                                <ContentPresenter x:Name="ContentSite" ContentSource="Header" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="Border" Property="Background" Value="{DynamicResource styleWhiteBackground}" />
+                                    <Setter Property="Foreground" Value="{DynamicResource styleColorPinkText}" />
+                                    <Setter Property="FontWeight" Value="ExtraBold" />
+                                    <Setter TargetName="Border" Property="Background">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Images/ad_keypad_blue_bg.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="False">
+                                    <!--<Setter TargetName="Border" Property="Background" Value="{DynamicResource stylePinkBackground}" />-->
+                                    <Setter TargetName="Border" Property="Background">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Images/ad_keypad_blue_bg.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="styleTextPassword" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="#Noto Sans Regular" />
+                <Setter Property="FontSize" Value="32" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="TextAlignment" Value="Left" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="#FFAAAAAA" />
+            </Style>
+
+            <Style x:Key="styleKeypadWhiteBg" TargetType="{x:Type ctrl:TouchButton}">
+                <Setter Property="Width" Value="175" />
+                <Setter Property="Height" Value="70" />
+                <Setter Property="Source" Value="pack://siteoforigin:,,,/Resources/Images/ad_keypad_bg.png" />
+                <Setter Property="SourceOver" Value="pack://siteoforigin:,,,/Resources/Images/ad_keypad_on_bg.png" />
+            </Style>
+
+            <Style x:Key="styleKeypadWhiteTB" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="Foreground" Value="#FF000000" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="styleKeypadBlueBg" TargetType="{x:Type ctrl:TouchButton}">
+                <Setter Property="Width" Value="175" />
+                <Setter Property="Height" Value="70" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="Foreground" Value="{DynamicResource styleColorWhiteText}" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Source" Value="pack://siteoforigin:,,,/Resources/Images/ad_keypad_blue_bg.png" />
+                <Setter Property="SourceOver" Value="pack://siteoforigin:,,,/Resources/Images/ad_keypad_blue_on_bg.png" />
+            </Style>
+
+            <Style x:Key="styleKeypadBlueTB" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="Foreground" Value="{DynamicResource styleColorInit}" />
+                <!--<Setter Property="FontWeight" Value="Bold" />-->
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="DeviceHeaderStyle" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="{DynamicResource styleColorWhiteText}" />
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+
+            <Style x:Key="DeviceStyle" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="#FF000000" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+
+            <Style x:Key="DeviceStatusStyle" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="#FF000000" />
+                <Setter Property="FontSize" Value="18" />
+                <!--<Setter Property="FontWeight" Value="Bold" />-->
+            </Style>
+
+            <Style x:Key="DeviceStatusChangeStyle" TargetType="{x:Type ctrl:TouchButton}">
+                <Setter Property="Width" Value="140" />
+                <Setter Property="Height" Value="56" />
+                <Setter Property="Source" Value="pack://siteoforigin:,,,/Resources/Images/bu_stbg.png" />
+                <Setter Property="SourceOver" Value="pack://siteoforigin:,,,/Resources/Images/bu_stbg_on.png" />
+            </Style>
+
+            <Style x:Key="DeviceStatusChangeTBStyle" TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground" Value="{DynamicResource styleColorBlueText}" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="styleTitleTextblock" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="{DynamicResource styleColorMainTextGray}" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+            </Style>
+
+            <Style x:Key="styleTitleTextbox" TargetType="TextBox">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="Foreground" Value="{DynamicResource styleColorMainTextGray}" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Margin" Value="2" />
+            </Style>
+
+            <Style x:Key="styleTitleLabel" TargetType="Label">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="{DynamicResource styleColorWhiteText}" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+
+            <Style x:Key="styleGroubox" TargetType="GroupBox">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="GroupBox">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="80" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" BorderThickness="0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Images/con_bottombg.jpg" Stretch="Fill"/>
+                                    </Border.Background>
+                                    <Label Foreground="{DynamicResource styleColorWhiteText}" Margin="20,0"
+                                           VerticalAlignment="Center">
+                                        <ContentPresenter Margin="0" ContentSource="Header" RecognizesAccessKey="True" />
+                                    </Label>
+                                </Border>
+                                <Border Grid.Row="1" BorderThickness="2,0,2,2" BorderBrush="{DynamicResource styleColorPinkText}">
+                                    <ContentPresenter Margin="4" />
+                                </Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="styleButton" TargetType="Button">
+                <Setter Property="FontSize" Value="24" />
+            </Style>
+            <Style x:Key="toggleStyle" BasedOn="{StaticResource {x:Type ToggleButton}}"
+                   TargetType="{x:Type RadioButton}">
+                <Style.Triggers>
+                    <Trigger Property="IsChecked" Value="true">
+                        <Setter Property="Background" Value="{DynamicResource styleColorPinkText}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="styleTextBox" TargetType="TextBox">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="TextAlignment" Value="Left"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="Foreground" Value="{DynamicResource styleColorMainTextGray}" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Margin" Value="2" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <ScrollViewer PanningMode="VerticalOnly"
+              VerticalScrollBarVisibility="Hidden" 
+              HorizontalScrollBarVisibility="Disabled">
+        <Grid x:Name="ctPagebody">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="36"/>
+                <RowDefinition Height="13"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="27"/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Stretch="None" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Source="pack://siteoforigin:,,,/Resources/Images/gr_title.png"></Image>
+
+            <ctrl:AdvancedStretchTextBlock Grid.Row="1" Grid.Column="3" x:Name="ctTbMain" Text="System Status" Style="{DynamicResource styleTextMain}" VerticalAlignment="Center" HorizontalAlignment="Left" />
+
+            <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4">
+                <TabControl x:Name="AdminTab" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TabStripPlacement="Right" Style="{DynamicResource tabControlStyle}" ItemContainerStyle="{DynamicResource tabItemStyle}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.ChangeTabItemCommand}" CommandParameter="{Binding ElementName=AdminTab, Path=SelectedItem}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                    <TabItem x:Name="tabDevice" Header="Device">
+                        <Grid Margin="10,10,0,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+
+                            </Grid.RowDefinitions>
+                            <GroupBox Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="13" 
+                                      Header="{Binding CancelPaymentMsg}" FontSize="24"  
+                                      Style="{DynamicResource styleGroubox}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="82"/>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="82"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Row="1"  Grid.Column="1" 
+                                   Text="Approval No" Foreground="Black"
+                                   Style="{DynamicResource styleTitleTextblock}"/>
+                                    <TextBox Grid.Row="1"  Grid.Column="3"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     MaxLength="8"
+                                     Text="{Binding ApprovalNumber}">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="GotFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="LostFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBox>
+                                    <TextBlock Grid.Row="1"  Grid.Column="5" 
+                                   Text="Price" Foreground="Black"
+                                   Style="{DynamicResource styleTitleTextblock}"/>
+                                    <TextBox Grid.Row="1"   Grid.Column="7"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     MaxLength="5"
+                                     Text="{Binding CancelPrice}">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="GotFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="LostFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBox>
+                                    <TextBlock Grid.Row="1"  Grid.Column="9" 
+                                   Text="Approval Date(6digits)" Foreground="Black"
+                                   Style="{DynamicResource styleTitleTextblock}"/>
+                                    <TextBox Grid.Row="1"   Grid.Column="11"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     MaxLength="6"
+                                     Text="{Binding ApprovalDate}">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="GotFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="LostFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBox>
+                                    <Button Grid.Row="3"  x:Name="btnCancelPayment" Tag="CancelPayment" Content="Cancel Payment"
+                                            Grid.Column="9" Grid.ColumnSpan="3" Margin="4"
+                                            Style="{DynamicResource styleButton}" 
+                                            Command="{Binding ClickCommand}" 
+                                            CommandParameter="{Binding ElementName=btnCancelPayment, Path=Tag}"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Grid.Row="7" Grid.RowSpan="7" Grid.ColumnSpan="13" 
+                                      Header="Status" FontSize="24"  
+                                      Style="{DynamicResource styleGroubox}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="82"/>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="82"/>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="82"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="Receipt Printer"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="3" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="{Binding ReceiptPrinterStatus}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="5" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="Nail Printer Manager"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="7" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="{Binding NailPrinterManagerStatus}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="9" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="Card Reader"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="11" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="{Binding CardReaderStatus}"/>
+
+                                    <TextBlock Grid.Row="3" Grid.Column="1" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="Nail Label"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="3" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text=""/>
+                                    <TextBlock Grid.Row="3" Grid.Column="5" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text=""/>
+                                    <TextBlock Grid.Row="3" Grid.Column="7" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text=""/>
+                                    <TextBlock Grid.Row="3" Grid.Column="9" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="Total Printed"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="11" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="{Binding TotalPrintedCount}"/>
+
+                                    <TextBlock Grid.Row="5" Grid.Column="1" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="Ink Weight"/>
+                                    <TextBlock Grid.Row="5" Grid.Column="3" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="{Binding InkVol[0]}"/>
+                                    <TextBlock Grid.Row="5" Grid.Column="5" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="{Binding InkVol[1]}"/>
+                                    <TextBlock Grid.Row="5" Grid.Column="7" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="{Binding InkVol[2]}"/>
+                                    <TextBlock Grid.Row="5" Grid.Column="9" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="{Binding InkVol[3]}"/>
+                                    <TextBlock Grid.Row="5" Grid.Column="11" 
+                                               Style="{DynamicResource styleTitleTextblock}"
+                                               Text="{Binding InkVol[4]}"/>
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Grid.Row="15" Grid.RowSpan="3" Grid.ColumnSpan="13" 
+                                      Header="Receipt Printer" FontSize="24"  
+                                      Style="{DynamicResource styleGroubox}"
+                                      Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button x:Name="btnReceiptConnect" Tag="ReceiptConnect" Content="Connect"
+                                            Grid.Column="1"
+                                            Style="{DynamicResource styleButton}" Margin="2"
+                                            Command="{Binding ClickCommand}" 
+                                            CommandParameter="{Binding ElementName=btnReceiptConnect, Path=Tag}"/>
+                                    <Button x:Name="btnReceiptDisconnect" Tag="ReceiptDisconnect" Content="Disconnect"
+                                            Grid.Column="3"
+                                            Style="{DynamicResource styleButton}" Margin="2"
+                                            Command="{Binding ClickCommand}" 
+                                            CommandParameter="{Binding ElementName=btnReceiptDisconnect, Path=Tag}"/>
+                                    <Button x:Name="btnReceiptSample" Tag="ReceiptSample" Content="Sample"
+                                            Grid.Column="5"
+                                            Style="{DynamicResource styleButton}" Margin="2"
+                                            Command="{Binding ClickCommand}" 
+                                            CommandParameter="{Binding ElementName=btnReceiptSample, Path=Tag}"/>
+                                    <Button x:Name="btnReceiptStatus" Tag="ReceiptStatus" Content="Status"
+                                            Grid.Column="7"
+                                            Style="{DynamicResource styleButton}" Margin="2"
+                                            Command="{Binding ClickCommand}" 
+                                            CommandParameter="{Binding ElementName=btnReceiptStatus, Path=Tag}"/>
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Grid.Row="19" Grid.RowSpan="3" Grid.ColumnSpan="13" 
+                                      Header="Nail Printer Manager" FontSize="24"  
+                                      Style="{DynamicResource styleGroubox}"
+                                      Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button x:Name="btnMotorOnOff" Tag="MotorOnOff" Content="{Binding Path=MotorOnOff, Mode=TwoWay}"
+                                            Grid.Column="1"
+                                            Style="{DynamicResource styleButton}" Margin="2"
+                                            Command="{Binding ClickCommand}" 
+                                            CommandParameter="{Binding ElementName=btnMotorOnOff, Path=Tag}"/>
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Grid.Row="23" Grid.RowSpan="3" Grid.ColumnSpan="13" 
+                                      Header="Card Reader" FontSize="24"  
+                                      Style="{DynamicResource styleGroubox}"
+                                      Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button x:Name="btnCardReaderConnection" Tag="CardReaderConnection" Content="Connection"
+                                            Grid.Column="1"
+                                            Style="{DynamicResource styleButton}" Margin="2"
+                                            Command="{Binding ClickCommand}" 
+                                            CommandParameter="{Binding ElementName=btnCardReaderConnection, Path=Tag}"/>
+                                    <Button x:Name="btnCardReaderCheck" Tag="CardReaderCheck" Content="Check"
+                                            Grid.Column="3"
+                                            Style="{DynamicResource styleButton}" Margin="2"
+                                            Command="{Binding ClickCommand}" 
+                                            CommandParameter="{Binding ElementName=btnCardReaderCheck, Path=Tag}"/>
+                                </Grid>
+                            </GroupBox>
+
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="tabBackupImages" Header="Backup Images">
+                        <Grid Background="Transparent" HorizontalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="206"/>
+                            </Grid.RowDefinitions>
+                            <Grid Background="Transparent" HorizontalAlignment="Center">
+                                <ListBox x:Name ="qrImageListBox" Grid.Row="0" 
+                                         ItemsSource="{Binding BackupImageList}" 
+                                         Style="{StaticResource backupImageStyle}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate DataType="{x:Type datas:QRImageListInfo}">
+                                            <Grid>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Border Width="600" Height="280" Margin="20,10"
+                                                            BorderThickness="2" BorderBrush="Silver">
+                                                        <Image Source="{Binding Path=TempImagePath, Converter={StaticResource DesignConverter}}" 
+                                                               RenderTransformOrigin="0.5,0.5">
+                                                            <Image.RenderTransform>
+                                                                <RotateTransform Angle="180" />
+                                                            </Image.RenderTransform>
+                                                        </Image>
+                                                    </Border>
+
+                                                    <ctrl:NumericUpDown Width="230" Height="80"
+                                                                        Value="{Binding Path=PrintCount, Mode=TwoWay, FallbackValue=0}"
+                                                                        VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                                                                        BoxTextColor="{DynamicResource styleColorPinkText}" BoxTextSize="30" 
+                                                                        ValueChanged="ValueChanged">
+                                                    </ctrl:NumericUpDown>
+                                                </StackPanel>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+
+                            <Image Grid.Row="1" Grid.Column="1" Stretch="Fill" Source="pack://siteoforigin:,,,/Resources/Images/back03.png" />
+                            <Grid Grid.Row="1" Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="80"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="62"/>
+                                    <ColumnDefinition Width="220"/>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="62"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"  Text="{Binding Lang[M300_ctTbPrintCount].Sentence}" Foreground="{DynamicResource styleColorPinkText}" TextAlignment="Center" FontWeight="Bold" FontSize="24"/>
+
+                                <TextBlock x:Name="TotalPrintCount" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"  Text="{Binding TotalPrintCount, Mode=TwoWay}" Foreground="{DynamicResource styleColorPinkText}" TextAlignment="Center" FontWeight="Bold" FontSize="30"/>
+                                <Image Stretch="Fill" Grid.Row="1" Grid.Column="2" Source="pack://siteoforigin:,,,/Resources/Images/bar.png" Margin="8, 13" />
+
+                                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="5">
+                                    <ctrl:TouchButton x:Name="btnCard" 
+                                                      Command="{Binding ClickCommand}" CommandParameter="Print" 
+                                                      Width="120" Height="100" Tag="Print" Text="Print"
+                                                      TextBlockStyle="{DynamicResource styleConfirmButton}"
+                                                      Source="pack://siteoforigin:,,,/Resources/Images/bu_stbg.png" 
+                                                      SourceOver="pack://siteoforigin:,,,/Resources/Images/bu_stbg.png" 
+                                                      IsEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="tabSetting" Header="Setting">
+                        <Grid Margin="10,10,0,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5"/>
+                            </Grid.ColumnDefinitions>
+
+                            <GroupBox Grid.Row="1" Grid.ColumnSpan="13" Grid.Column="0" Grid.RowSpan="11"
+                                      Header="NailPOD" FontSize="24"  
+                                      Style="{DynamicResource styleGroubox}" />
+
+                            <Label Grid.Row="1" Grid.Column="11" 
+                                   Content="{Binding AppVersion}"
+                                   Style="{DynamicResource styleTitleLabel}"/>
+
+                            <Label Grid.Row="3" Grid.Column="1" 
+                                   Content="Price"
+                                   Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}"/>
+
+                            <TextBox Grid.Row="3" Grid.Column="3"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     Text="{Binding Price, Mode=TwoWay}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="GotFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <Button x:Name="btnSavePrice" Tag="SavePrice" Content="Save"
+                                    Grid.Row="3" Grid.Column="5"
+                                    Style="{DynamicResource styleButton}" Margin="2"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnSavePrice, Path=Tag}"/>
+
+                            <Label Grid.Row="3" Grid.Column="7" 
+                                   Content="ID"
+                                   Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}"
+                                   Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}"/>
+                            <TextBox Grid.Row="3" Grid.Column="9"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     Text="{Binding MachineID, Mode=TwoWay}"
+                                     Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="GotFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <Button x:Name="btnSaveMachineID" Tag="SaveMachineID" Content="Save"
+                                    Grid.Row="3" Grid.Column="11"
+                                    Style="{DynamicResource styleButton}" Margin="2"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnSaveMachineID, Path=Tag}"
+                                    Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}"/>
+                            
+                            <Button x:Name="btnSaveSign" Tag="SaveSign" Content="Save"
+                                    Grid.Row="5" Grid.Column="9" Grid.RowSpan="3"
+                                    Style="{DynamicResource styleButton}" Margin="2"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnSaveSign, Path=Tag}"/>
+                            <Button x:Name="btnClearSign" Tag="ClearSign" Content="Clear"
+                                    Grid.Row="5" Grid.Column="11"
+                                    Style="{DynamicResource styleButton}" Margin="2"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnClearSign, Path=Tag}"/>
+                            <Button x:Name="btnInitSign" Tag="InitSign" Content="Initialize"
+                                    Grid.Row="7" Grid.Column="11"
+                                    Style="{DynamicResource styleButton}" Margin="2"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnInitSign, Path=Tag}"/>
+                            <Label Grid.Row="5" Grid.Column="1"
+                                   Content="Signature 1" Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}"/>
+                            <TextBox Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="5" 
+                                     Style="{DynamicResource styleTextBox}"
+                                     MaxLength="30" Text="{Binding Sign1, Mode=TwoWay}" input:InputMethod.IsInputMethodEnabled="False"
+                                     PreviewTextInput="TextBox_PreviewTextInput">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="GotFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <Label Grid.Row="7" Grid.Column="1"
+                                   Content="Signature 2" Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}" />
+                            <TextBox Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="5" 
+                                         Style="{DynamicResource styleTextBox}"
+                                         MaxLength="30" Text="{Binding Sign2, Mode=TwoWay}" input:InputMethod.IsInputMethodEnabled="False"
+                                      PreviewTextInput="TextBox_PreviewTextInput">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="GotFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <Label Grid.Row="9" Grid.Column="1"
+                                   Content="TTS" Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}" />
+                            <Button x:Name="btnTTS" Grid.Row="9" Grid.Column="3" Content="{Binding Path=SetTTS, Mode=TwoWay}" Tag="TTS"  
+                                    Style="{DynamicResource styleButton}" Margin="2"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnTTS, Path=Tag}"/>
+                            <Label Grid.Row="11" Grid.Column="1"
+                                   Content="Payment" Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}" />
+                            <Button x:Name="btnPayment" Grid.Row="11" Grid.Column="3" Content="{Binding Path=SetPayment, Mode=TwoWay}" Tag="Payment"  
+                                    Style="{DynamicResource styleButton}" Margin="2"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnPayment, Path=Tag}"/>
+
+
+                            <GroupBox Grid.Row="13" Grid.ColumnSpan="13" Grid.Column="0" Grid.RowSpan="11"
+                                      Header="Printer" FontSize="24"  
+                                      Style="{DynamicResource styleGroubox}" />
+
+                            <Label Grid.Row="15" Grid.Column="1" 
+                                   Content="Head Clean"
+                                   Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}"/>
+                            <Button x:Name="btnHeadCleanRun" Grid.Row="15" Grid.Column="3" Content="Run" Tag="HeadCleanRun"  
+                                    Style="{DynamicResource styleButton}" Margin="2"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnHeadCleanRun, Path=Tag}"/>
+                            <!--<Button x:Name="btnCancelPrintJob" Grid.Row="11" Grid.Column="5" Content="Cancel Job" Tag="CancelPrintJob"  
+                                    Style="{DynamicResource styleButton}" Margin="2"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnCancelPrintJob, Path=Tag}"/>-->
+                            <Label Grid.Row="15" Grid.Column="7" 
+                                   Content="Every : "
+                                   Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}"/>
+                            <ctrl:TimeControl x:Name="tcHeadClean" Grid.Row="15" Grid.Column="9" Grid.ColumnSpan="1"
+                                              Hours="{Binding CleanHour, Mode=TwoWay}" Minutes="{Binding CleanMinute, Mode=TwoWay}" 
+                                              Seconds="{Binding CleanSecond, Mode=TwoWay}"/>
+                            <Button x:Name="btnCleanTimeSet" Tag="CleanTimeSet" Content="Set"
+                                    Grid.Row="15" Grid.Column="11"
+                                    Style="{DynamicResource styleButton}" Margin="2"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnCleanTimeSet, Path=Tag}"/>
+
+                            <Grid Grid.Row="17" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="250"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="350"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Canvas Grid.Row="1" Grid.Column="1"  Background="LightGray">
+                                    <Rectangle Width="{Binding ElementName=tbItemWidth, Path=Text, Converter={StaticResource SizeConverter}, ConverterParameter=2}" 
+                                               Height="{Binding ElementName=tbItemHeight, Path=Text, Converter={StaticResource SizeConverter}, ConverterParameter=2}"
+                                               Canvas.Right="{Binding ElementName=tbItemRight, Path=Text, Converter={StaticResource SizeConverter}, ConverterParameter=2}"
+                                               Canvas.Bottom="{Binding ElementName=tbItemBottom, Path=Text, Converter={StaticResource SizeConverter}, ConverterParameter=2}"
+                                               Fill="White" Opacity="0.8"
+                                               SnapsToDevicePixels="True">
+                                    </Rectangle>
+                                </Canvas>
+                                <TextBlock Grid.Row="0" Grid.Column="1"
+                                           HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                           Text="174" Foreground="Black"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0"
+                                           HorizontalAlignment="Right" VerticalAlignment="Center"
+                                           Text="124" Foreground="Black"/>
+
+                            </Grid>
+                            <Label Grid.Row="17" Grid.Column="7" 
+                                   Content="Item Width" Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}"/>
+                            <TextBox x:Name="tbItemWidth" Grid.Row="17" Grid.Column="9"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     Text="{Binding ItemWidth, Mode=TwoWay}"/>
+                            <Label Grid.Row="19" Grid.Column="7" 
+                                   Content="Item Height" Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}"/>
+                            <TextBox x:Name="tbItemHeight" Grid.Row="19" Grid.Column="9"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     Text="{Binding ItemHeight, Mode=TwoWay}"/>
+                            <Button x:Name="btnInitCordinate" Tag="InitCordinate" Content="Initialize"
+                                    Grid.Row="17" Grid.Column="11"
+                                    Style="{DynamicResource styleButton}" Margin="2"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnInitCordinate, Path=Tag}"/>
+                            <Button x:Name="btnSaveCordinate" Tag="SaveCordinate" Content="Save"
+                                    Grid.Row="15" Grid.Column="11"
+                                    Style="{DynamicResource styleButton}" Margin="2"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnSaveCordinate, Path=Tag}"/>
+
+                            <Grid Grid.Row="21" Grid.Column="7" Grid.RowSpan="3" Grid.ColumnSpan="3">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <ctrl:IconButton x:Name="btnItemUp" Tag="ItemUp"
+                                                 Grid.Row="0" Grid.Column="1" 
+                                                 PathData="M8 48 L56 48 L32 12 Z" 
+                                                 IconVisibility="Visible" TextVisibility="Collapsed"
+                                                 Background="Transparent" Foreground="Black"
+                                                 Width="40" Height="40" 
+                                                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                 Command="{Binding ClickCommand}" 
+                                                 CommandParameter="{Binding ElementName=btnItemUp, Path=Tag}"/>
+                                <ctrl:IconButton x:Name="btnItemLeft" Tag="ItemLeft"
+                                                 Grid.Row="1" Grid.Column="0" 
+                                                 PathData="M12 32 L48 56 L48 8 Z" 
+                                                 IconVisibility="Visible" TextVisibility="Collapsed"
+                                                 Background="Transparent" Foreground="Black"
+                                                 Width="50" Height="50" 
+                                                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                 Command="{Binding ClickCommand}" 
+                                                 CommandParameter="{Binding ElementName=btnItemLeft, Path=Tag}"/>
+                                <ctrl:IconButton x:Name="btnItemRight" Tag="ItemRight"
+                                                 Grid.Row="1" Grid.Column="2" 
+                                                 PathData="M16 8 L16 56 L52 32 Z" 
+                                                 IconVisibility="Visible" TextVisibility="Collapsed"
+                                                 Background="Transparent" Foreground="Black"
+                                                 Width="50" Height="50" 
+                                                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                 Command="{Binding ClickCommand}" 
+                                                 CommandParameter="{Binding ElementName=btnItemRight, Path=Tag}"/>
+                                <ctrl:IconButton x:Name="btnItemDown" Tag="ItemDown"
+                                                 Grid.Row="6" Grid.Column="1" 
+                                                 PathData="M8 12 L56 12 L32 48 Z" 
+                                                 IconVisibility="Visible" TextVisibility="Collapsed"
+                                                 Background="Transparent" Foreground="Black"
+                                                 Width="40" Height="40" 
+                                                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                 Command="{Binding ClickCommand}" 
+                                                 CommandParameter="{Binding ElementName=btnItemDown, Path=Tag}"/>
+                            </Grid>
+                            <TextBox x:Name="tbItemRight" Grid.Row="21" Grid.Column="11"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     Text="{Binding ItemRight, Mode=TwoWay}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="GotFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <TextBox x:Name="tbItemBottom" Grid.Row="23" Grid.Column="11"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     Text="{Binding ItemBottom, Mode=TwoWay}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="GotFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+
+                            <GroupBox Grid.Row="25" Grid.ColumnSpan="13" Grid.RowSpan="3"
+                                      Header="Ink Limit" FontSize="24"  
+                                      Style="{DynamicResource styleGroubox}" 
+                                      Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="5"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button x:Name="btnSave" Tag="Save" Content="Save" 
+                                            Grid.Row="1" Grid.Column="1"
+                                            Style="{DynamicResource styleButton}" Margin="2"
+                                            Command="{Binding ClickCommand}" 
+                                            CommandParameter="{Binding ElementName=btnSave, Path=Tag}"
+                                            Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}"/>
+                                    <TextBox Grid.Row="1" Grid.Column="3"
+                                             Style="{DynamicResource styleTitleTextbox}"
+                                             Text="{Binding CyanValue, Mode=TwoWay}"
+                                             Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="GotFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="LostFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBox>
+                                    <TextBox Grid.Row="1" Grid.Column="5"
+                                             Style="{DynamicResource styleTitleTextbox}"
+                                             Text="{Binding MagentaValue, Mode=TwoWay}">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="GotFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="LostFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBox>
+                                    <TextBox Grid.Row="1" Grid.Column="7"
+                                             Style="{DynamicResource styleTitleTextbox}"
+                                             Text="{Binding YellowValue, Mode=TwoWay}">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="GotFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="LostFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBox>
+                                    <TextBox Grid.Row="1" Grid.Column="9"
+                                             Style="{DynamicResource styleTitleTextbox}"
+                                             Text="{Binding BlackValue, Mode=TwoWay}">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="GotFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="LostFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBox>
+                                    <TextBox Grid.Row="1" Grid.Column="11"
+                                             Style="{DynamicResource styleTitleTextbox}"
+                                             Text="{Binding WhiteValue, Mode=TwoWay}">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="GotFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="LostFocus">
+                                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBox>
+                                </Grid>
+                            </GroupBox>
+                            <Label Grid.Row="25" Grid.Column="3" 
+                                   Content="Cyan"
+                                   Style="{DynamicResource styleTitleLabel}"
+                                   Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}"/>
+                            <Label Grid.Row="25" Grid.Column="5" 
+                                   Content="Magenta"
+                                   Style="{DynamicResource styleTitleLabel}"
+                                   Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}"/>
+                            <Label Grid.Row="25" Grid.Column="7" 
+                                   Content="Yellow"
+                                   Style="{DynamicResource styleTitleLabel}"
+                                   Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}"/>
+                            <Label Grid.Row="25" Grid.Column="9" 
+                                   Content="Black"
+                                   Style="{DynamicResource styleTitleLabel}"
+                                   Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}"/>
+                            <Label Grid.Row="25" Grid.Column="11" 
+                                   Content="White"
+                                   Style="{DynamicResource styleTitleLabel}"
+                                   Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}"/>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="tabExpertSetting" Header="Expert Setting" Visibility="{Binding AdminVisible, Converter={StaticResource BoolToVis}}">
+                        <Grid Margin="10,10,0,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="82"/>
+                                <RowDefinition Height="5"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="5"/>
+                            </Grid.ColumnDefinitions>
+
+                            <GroupBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="13" 
+                                      Header="Nail Sticker" FontSize="24"  
+                                      Style="{DynamicResource styleGroubox}" />
+                            <Button x:Name="btnSaveNailCordinate" Tag="SaveNailCordinate" Content="Save"
+                                    Grid.Row="1" Grid.Column="11"
+                                    Style="{DynamicResource styleButton}" Margin="2,12"
+                                    Command="{Binding ClickCommand}" 
+                                    CommandParameter="{Binding ElementName=btnSaveNailCordinate, Path=Tag}"/>
+                            <Grid Grid.Row="3" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="7" Background="LightGray" Margin="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="8,0,0,0">
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailTop0" Tag="1"
+                                                   Width="40" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailTop0}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailTop0}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailTop1" Tag="2"
+                                                   Width="40" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailTop1}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailTop1}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailTop2" Tag="3"
+                                                   Width="40" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailTop2}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailTop2}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailTop3" Tag="4"
+                                                   Width="46" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailTop3}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailTop3}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailTop4" Tag="5"
+                                               Width="46" Height="180"
+                                               Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                               SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailTop4}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailTop4}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailTop5" Tag="6"
+                                                   Width="52" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailTop5}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailTop5}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailTop6" Tag="7"
+                                                   Width="52" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailTop6}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailTop6}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailTop7" Tag="8"
+                                                   Width="58" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailTop7}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailTop7}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailTop8" Tag="9"
+                                                   Width="58" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailTop8}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailTop8}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailTop9" Tag="10"
+                                                   Width="64" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailTop9}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailTop9}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailTop10" Tag="11"
+                                               Width="64" Height="180"
+                                               Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                               SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailTop10}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailTop10}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="8,0,0,0">
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailBottom0" Tag="1"
+                                                   Width="40" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailBottom0}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailBottom0}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailBottom1" Tag="2"
+                                                   Width="40" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailBottom1}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailBottom1}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailBottom2" Tag="3"
+                                                   Width="40" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailBottom2}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailBottom2}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailBottom3" Tag="4"
+                                                   Width="46" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailBottom3}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailBottom3}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailBottom4" Tag="5"
+                                                   Width="46" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailBottom4}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailBottom4}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailBottom5" Tag="6"
+                                                   Width="52" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailBottom5}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailBottom5}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailBottom6" Tag="7"
+                                                   Width="52" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailBottom6}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailBottom6}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailBottom7" Tag="8"
+                                                   Width="58" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailBottom7}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailBottom7}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailBottom8" Tag="9"
+                                                   Width="58" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailBottom8}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailBottom8}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailBottom9" Tag="10"
+                                                   Width="64" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailBottom9}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailBottom9}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Margin="2,8">
+                                        <Rectangle x:Name="recNailBottom10" Tag="11"
+                                                   Width="64" Height="180"
+                                                   Fill="White" Opacity="0.8" RadiusX="40" RadiusY="20"
+                                                   SnapsToDevicePixels="True">
+                                            <Rectangle.InputBindings>
+                                                <MouseBinding Gesture="LeftClick" Command="{Binding NailClickCommand}" CommandParameter="{Binding Path=Name, ElementName=recNailBottom10}"/>
+                                            </Rectangle.InputBindings>
+                                        </Rectangle>
+                                        <TextBlock Text="{Binding Path=Tag, ElementName=recNailBottom10}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                            <Label Grid.Row="3" Grid.Column="9" 
+                                   Content="Left" Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}"/>
+                            <TextBox x:Name="tbNailLeft" Grid.Row="3" Grid.Column="11"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     Text="{Binding NailLeft, Mode=TwoWay}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="GotFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <Label Grid.Row="5" Grid.Column="9" 
+                                   Content="Top" Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}"/>
+                            <TextBox x:Name="tbNailTop" Grid.Row="5" Grid.Column="11"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     Text="{Binding NailTop, Mode=TwoWay}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="GotFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <Label Grid.Row="7" Grid.Column="9" 
+                                   Content="Width" Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}"/>
+                            <TextBox x:Name="tbNailWidth" Grid.Row="7" Grid.Column="11"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     Text="{Binding NailWidth, Mode=TwoWay}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="GotFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <Label Grid.Row="9" Grid.Column="9" 
+                                   Content="Height" Foreground="Black"
+                                   Style="{DynamicResource styleTitleLabel}"/>
+                            <TextBox x:Name="tbNailHeight" Grid.Row="9" Grid.Column="11"
+                                     Style="{DynamicResource styleTitleTextbox}"
+                                     Text="{Binding NailHeight, Mode=TwoWay}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="GotFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.GotFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.LostFocusedCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="tabPassword" Header="Password">
+                        <Grid x:Name="ctGdPasswd" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="200" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="103" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="70" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="70" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="70" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="70" />
+                            </Grid.RowDefinitions>
+
+                            <Image Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Source="pack://siteoforigin:,,,/Resources/Images/input_box.png" />
+                            <TextBlock x:Name="ctTbInput" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Style="{DynamicResource styleTextPassword}" Text="{Binding InputValue}" />
+
+                            <ctrl:TouchButton x:Name="ctBtKeypad1" Grid.Row="3" Grid.Column="1" Text="{Binding Number1}" Tag="{Binding Number1}" Style="{DynamicResource styleKeypadWhiteBg}" TextBlockStyle="{DynamicResource styleKeypadWhiteTB}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad1, Path=Tag}" />
+                            <ctrl:TouchButton x:Name="ctBtKeypad2" Grid.Row="3" Grid.Column="3" Text="{Binding Number2}" Tag="{Binding Number2}" Style="{DynamicResource styleKeypadWhiteBg}" TextBlockStyle="{DynamicResource styleKeypadWhiteTB}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad2, Path=Tag}" />
+                            <ctrl:TouchButton x:Name="ctBtKeypad3" Grid.Row="3" Grid.Column="5" Text="{Binding Number3}" Tag="{Binding Number3}" Style="{DynamicResource styleKeypadWhiteBg}" TextBlockStyle="{DynamicResource styleKeypadWhiteTB}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad3, Path=Tag}" />
+                            <ctrl:TouchButton x:Name="ctBtKeypad4" Grid.Row="5" Grid.Column="1" Text="{Binding Number4}" Tag="{Binding Number4}" Style="{DynamicResource styleKeypadWhiteBg}" TextBlockStyle="{DynamicResource styleKeypadWhiteTB}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad4, Path=Tag}" />
+                            <ctrl:TouchButton x:Name="ctBtKeypad5" Grid.Row="5" Grid.Column="3" Text="{Binding Number5}" Tag="{Binding Number5}" Style="{DynamicResource styleKeypadWhiteBg}" TextBlockStyle="{DynamicResource styleKeypadWhiteTB}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad5, Path=Tag}" />
+                            <ctrl:TouchButton x:Name="ctBtKeypad6" Grid.Row="5" Grid.Column="5" Text="{Binding Number6}" Tag="{Binding Number6}" Style="{DynamicResource styleKeypadWhiteBg}" TextBlockStyle="{DynamicResource styleKeypadWhiteTB}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad6, Path=Tag}" />
+                            <ctrl:TouchButton x:Name="ctBtKeypad7" Grid.Row="7" Grid.Column="1" Text="{Binding Number7}" Tag="{Binding Number7}" Style="{DynamicResource styleKeypadWhiteBg}" TextBlockStyle="{DynamicResource styleKeypadWhiteTB}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad7, Path=Tag}" />
+                            <ctrl:TouchButton x:Name="ctBtKeypad8" Grid.Row="7" Grid.Column="3" Text="{Binding Number8}" Tag="{Binding Number8}" Style="{DynamicResource styleKeypadWhiteBg}" TextBlockStyle="{DynamicResource styleKeypadWhiteTB}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad8, Path=Tag}" />
+                            <ctrl:TouchButton x:Name="ctBtKeypad9" Grid.Row="7" Grid.Column="5" Text="{Binding Number9}" Tag="{Binding Number9}" Style="{DynamicResource styleKeypadWhiteBg}" TextBlockStyle="{DynamicResource styleKeypadWhiteTB}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad9, Path=Tag}" />
+                            <ctrl:TouchButton x:Name="ctBtKeypad0" Grid.Row="9" Grid.Column="3" Text="{Binding Number0}" Tag="{Binding Number0}" Style="{DynamicResource styleKeypadWhiteBg}" TextBlockStyle="{DynamicResource styleKeypadWhiteTB}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypad0, Path=Tag}" />
+
+                            <ctrl:TouchButton x:Name="ctBtKeypadDelete" Grid.Row="9" Grid.Column="1" Text="Delete" Tag="10" Style="{DynamicResource styleKeypadBlueBg}" TextBlockStyle="{DynamicResource styleKeypadBlueTB}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypadDelete, Path=Tag}" />
+                            <ctrl:TouchButton x:Name="ctBtKeypadSubmit" Grid.Row="9" Grid.Column="5" Text="Submit" Tag="11" Style="{DynamicResource styleKeypadBlueBg}" TextBlockStyle="{DynamicResource styleKeypadBlueTB}" Command="{Binding ClickCommand}" CommandParameter="{Binding ElementName=ctBtKeypadSubmit, Path=Tag}" />
+                        </Grid>
+                    </TabItem>
+
+                </TabControl>
+
+            </Grid>
+
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>

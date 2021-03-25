@@ -1,0 +1,102 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBeautyNail", "iBeautyNail\iBeautyNail.csproj", "{B9D62605-D31A-4EA6-AFEB-BF532F573417}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{33D0FC6F-A40F-4ADC-961D-037F630B8831}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configs", "Configs", "{AB686483-5432-4233-9420-791511947485}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\Configs\application.config = Resources\Configs\application.config
+		Resources\Configs\devices.config = Resources\Configs\devices.config
+		Resources\Configs\HttpSetting.ini = Resources\Configs\HttpSetting.ini
+		Resources\Configs\iocContainer.config = Resources\Configs\iocContainer.config
+		Resources\Configs\log4net.xml = Resources\Configs\log4net.xml
+		Resources\Configs\mcu.config = Resources\Configs\mcu.config
+		Resources\Configs\pageNavigation.config = Resources\Configs\pageNavigation.config
+		Resources\Configs\PrintImageCordinator.ini = Resources\Configs\PrintImageCordinator.ini
+		Resources\Configs\PrintSetting.ini = Resources\Configs\PrintSetting.ini
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{D1E7D5D7-4E77-4F69-A968-0ABF71CC0AC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{D58BC300-C933-40DE-AACD-D8C702CDE626}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ext-Library", "Ext-Library", "{41FEA2C6-1362-495D-9E37-5776E7893E9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBeautyNailLib", "iBeautyNailLib\iBeautyNailLib.csproj", "{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Languages", "Languages", "{98E1D90F-463E-42A6-867F-03C3954DC9C6}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\Resources\Languages\01_ko-KR.lang = Resources\Resources\Languages\01_ko-KR.lang
+		Resources\Resources\Languages\02_en-US.lang = Resources\Resources\Languages\02_en-US.lang
+		Resources\Resources\Languages\03_es-ES.lang = Resources\Resources\Languages\03_es-ES.lang
+		Resources\Resources\Languages\05_ja-JP.lang = Resources\Resources\Languages\05_ja-JP.lang
+		Resources\Resources\Languages\06_zh-CN.lang = Resources\Resources\Languages\06_zh-CN.lang
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBeautyNailAutoUpdater", "iBeautyNailAutoUpdater\iBeautyNailAutoUpdater.csproj", "{205C074C-BAA4-4910-82FA-0D5498453A05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9D62605-D31A-4EA6-AFEB-BF532F573417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9D62605-D31A-4EA6-AFEB-BF532F573417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9D62605-D31A-4EA6-AFEB-BF532F573417}.Debug|x64.ActiveCfg = Debug|x64
+		{B9D62605-D31A-4EA6-AFEB-BF532F573417}.Debug|x64.Build.0 = Debug|x64
+		{B9D62605-D31A-4EA6-AFEB-BF532F573417}.Debug|x86.ActiveCfg = Debug|x86
+		{B9D62605-D31A-4EA6-AFEB-BF532F573417}.Debug|x86.Build.0 = Debug|x86
+		{B9D62605-D31A-4EA6-AFEB-BF532F573417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9D62605-D31A-4EA6-AFEB-BF532F573417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9D62605-D31A-4EA6-AFEB-BF532F573417}.Release|x64.ActiveCfg = Release|x64
+		{B9D62605-D31A-4EA6-AFEB-BF532F573417}.Release|x64.Build.0 = Release|x64
+		{B9D62605-D31A-4EA6-AFEB-BF532F573417}.Release|x86.ActiveCfg = Release|x86
+		{B9D62605-D31A-4EA6-AFEB-BF532F573417}.Release|x86.Build.0 = Release|x86
+		{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}.Debug|x64.ActiveCfg = Debug|x64
+		{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}.Debug|x64.Build.0 = Debug|x64
+		{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}.Debug|x86.ActiveCfg = Debug|x86
+		{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}.Debug|x86.Build.0 = Debug|x86
+		{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}.Release|x64.ActiveCfg = Release|x64
+		{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}.Release|x64.Build.0 = Release|x64
+		{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}.Release|x86.ActiveCfg = Release|x86
+		{0CC706D3-CBAC-449B-8A63-DFC34BA5AAB6}.Release|x86.Build.0 = Release|x86
+		{205C074C-BAA4-4910-82FA-0D5498453A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{205C074C-BAA4-4910-82FA-0D5498453A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{205C074C-BAA4-4910-82FA-0D5498453A05}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{205C074C-BAA4-4910-82FA-0D5498453A05}.Debug|x64.Build.0 = Debug|Any CPU
+		{205C074C-BAA4-4910-82FA-0D5498453A05}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{205C074C-BAA4-4910-82FA-0D5498453A05}.Debug|x86.Build.0 = Debug|Any CPU
+		{205C074C-BAA4-4910-82FA-0D5498453A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{205C074C-BAA4-4910-82FA-0D5498453A05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{205C074C-BAA4-4910-82FA-0D5498453A05}.Release|x64.ActiveCfg = Release|Any CPU
+		{205C074C-BAA4-4910-82FA-0D5498453A05}.Release|x64.Build.0 = Release|Any CPU
+		{205C074C-BAA4-4910-82FA-0D5498453A05}.Release|x86.ActiveCfg = Release|Any CPU
+		{205C074C-BAA4-4910-82FA-0D5498453A05}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB686483-5432-4233-9420-791511947485} = {33D0FC6F-A40F-4ADC-961D-037F630B8831}
+		{D1E7D5D7-4E77-4F69-A968-0ABF71CC0AC7} = {33D0FC6F-A40F-4ADC-961D-037F630B8831}
+		{D58BC300-C933-40DE-AACD-D8C702CDE626} = {D1E7D5D7-4E77-4F69-A968-0ABF71CC0AC7}
+		{41FEA2C6-1362-495D-9E37-5776E7893E9D} = {33D0FC6F-A40F-4ADC-961D-037F630B8831}
+		{98E1D90F-463E-42A6-867F-03C3954DC9C6} = {D1E7D5D7-4E77-4F69-A968-0ABF71CC0AC7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {560D7F5E-8601-41B3-A46F-20FA9A6EA0B8}
+	EndGlobalSection
+EndGlobal

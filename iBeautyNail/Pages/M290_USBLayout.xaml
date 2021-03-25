@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="iBeautyNail.Pages.M290_USBLayout"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:ctrl="clr-namespace:iBeautyNail.Extensions.Controls"
+      xmlns:local="clr-namespace:iBeautyNail.Pages"
+      xmlns:vm="clr-namespace:iBeautyNail.ViewModel"
+      xmlns:converter="clr-namespace:iBeautyNail.Extensions.Converters"
+      xmlns:beh="clr-namespace:iBeautyNail.Extensions.Behaviour"
+      xmlns:data="clr-namespace:iBeautyNail.Datas"
+      mc:Ignorable="d" 
+      d:DesignHeight="1126" d:DesignWidth="1080">
+    <UserControl.Resources>
+        <converter:HeaderToImageConverter x:Key="HeaderToImageConverter"/>
+        <converter:PathConverter x:Key="PathConverter"/>
+        <Style x:Key="GridVisibleTrueFalse" TargetType="Grid">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsUsbConnected}" Value="True">
+                    <Setter Property="Visibility" Value="Hidden"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsUsbConnected}" Value="False">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="280"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <ListBox x:Name="USBFiles" Style="{StaticResource usbListBoxStyle}" ItemsSource="{Binding USBDesignInfoList}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="91"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Image x:Name="imagetemp" Grid.Row="0" Width="120" Height="91" Stretch="Uniform" Source="{Binding DesignPath, Converter={StaticResource HeaderToImageConverter}, Mode=TwoWay}"  Margin="10,0" >
+                                <Image.InputBindings>
+                                    <MouseBinding Gesture="LeftDoubleClick" Command="{Binding DataContext.USBClickCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}"  />
+                                </Image.InputBindings>
+                            </Image>
+                            <TextBlock Grid.Row="1" Text="{Binding DesignPath, Converter={StaticResource PathConverter}}" TextWrapping="Wrap" HorizontalAlignment="Center" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="683"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="{Binding ModifyThumb}"  Grid.Row="1" Grid.RowSpan="2" Stretch="Uniform" Width="1031" Height="683"  HorizontalAlignment="Center"/>
+            <Button Grid.Row="3" x:Name="btnToMyChoice" Content="나의 선택으로" Width="240" Height="60" VerticalAlignment="Top" HorizontalAlignment="Center" 
+                    Background="CornflowerBlue" Foreground="WhiteSmoke" FontWeight="Bold" FontFamily="Youth" FontSize="28" Click="btnClick" Visibility="Visible">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PreviewMouseDown">
+                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectNailDesignDownCommand}" />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="PreviewMouseUp">
+                        <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.SelectNailDesignUpCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Grid Grid.Row="2" Grid.RowSpan="2" Width="{Binding ImageWidth}"  Height="549" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <Grid.OpacityMask>
+                    <ImageBrush ImageSource="{Binding MaskModifyThumb}"  />
+                </Grid.OpacityMask>
+
+                <Grid x:Name="pbUserImage"  Background="Transparent" VerticalAlignment="Top"
+                              Width="{Binding PbUserImageWidth}" Height="549" Margin="0,0,0,0"
+                            HorizontalAlignment="Center" ClipToBounds="True"
+                            Tag="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=PbUserImage1}">
+
+                    <Image x:Name="myImage"  Grid.Row="2"  Width="{Binding ImageWidth}" Height="549"
+                           RenderTransform="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=ImageTransform}"
+                           Stretch="Uniform"
+                           IsManipulationEnabled="True"
+                           ManipulationStarting="Image_ManipulationStarting"
+                           ManipulationDelta="Image_ManipulationDelta" 
+                           ManipulationCompleted="Image_ManipulationCompleted"
+                           HorizontalAlignment="Center"
+                           Source="{Binding MyDesignPath, Converter={StaticResource DesignConverter}}"
+                           Tag="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=MyImage1}" />
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row ="0" Grid.RowSpan="2" Style="{StaticResource GridVisibleTrueFalse}" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="256" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="12" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="285" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="285" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="1" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="3"  VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/Images/printer01_back.png" />
+            <ctrl:AdvancedStretchTextBlock Text = "{Binding Lang[M290_ctTbInsertUSB].Sentence}"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Style="{DynamicResource styleTextMainPink}" />
+            <Image Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/Images/usb.png" Stretch="Uniform" />
+
+        </Grid>
+    </Grid>
+</UserControl>

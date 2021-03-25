@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="iBeautyNail.Pages.M060_MessagePopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:iBeautyNail.Pages"
+             xmlns:ctrl="clr-namespace:iBeautyNail.Extensions.Controls"
+             xmlns:gif="clr-namespace:XamlAnimatedGif;assembly=XamlAnimatedGif"
+             Style="{StaticResource Empty}"
+             mc:Ignorable="d" d:DesignHeight="1024" d:DesignWidth="1280">
+    <!--Background="{DynamicResource styleBlueBackground}"-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="122" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--<Button x:Name="ctPanelbgtop" Grid.Row="0" ctrl:ImageButton.ImagePath="pack://siteoforigin:,,,/Resources/ImagesNew/layer_bg.png" Background="#FFFFFFFF" Opacity="0.5" Height="AUTO"/>-->
+        <Grid Grid.Row="0" Opacity="0.5" Background="#4c4c4c"  />
+
+        <Grid x:Name="ctPagebody" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="36" />
+                <RowDefinition Height="13" />
+                <RowDefinition Height="21" />
+                <RowDefinition Height="13" />
+                <RowDefinition Height="21" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="ctPanelbg" Grid.Row="0" Grid.RowSpan="10" Grid.Column="0" Grid.ColumnSpan="3" Style="{DynamicResource stylePanel}" ctrl:ImageButton.ImagePath="pack://siteoforigin:,,,/Resources/Images/layer_bg.png" />
+            <ctrl:AdvancedStretchTextBlock x:Name="ctTbTitle" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Title}" Style="{DynamicResource styleTextMain}" Foreground="{DynamicResource styleColorWhiteText}"/>
+            <ctrl:AdvancedStretchTextBlock x:Name="ctTbSubTitle" Grid.Row="3" Grid.RowSpan="2"  Grid.Column="0"  Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding SubTitle}" Style="{DynamicResource styleTextSub}" Foreground="{DynamicResource styleColorWhiteText}"/>
+            <ctrl:AdvancedStretchTextBlock x:Name="ctTbMessage" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Message}" Style="{DynamicResource styleTextSub}" Foreground="{DynamicResource styleColorWhiteText}"/>
+            <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+                <ctrl:TouchButton x:Name="ctBtButton0" Visibility="Visible" Command="{Binding Button0}" Margin="10" Width="176" Height="100" Tag="Home"  Source="pack://siteoforigin:,,,/Resources/Images/bu_pop_ok.png" SourceOver="pack://siteoforigin:,,,/Resources/Images/bu_pop_ok_on.png" TextBlockStyle="{DynamicResource styleConfirmButton}" HorizontalAlignment="Left" />
+                <ctrl:TouchButton x:Name="ctBtButton1" Visibility="Visible" Command="{Binding Button1}" Margin="10" Width="176" Height="100" Tag="Home1"  Source="pack://siteoforigin:,,,/Resources/Images/bu_pop_ok.png" SourceOver="pack://siteoforigin:,,,/Resources/Images/bu_pop_ok_on.png" TextBlockStyle="{DynamicResource styleConfirmButton}" HorizontalAlignment="Center" />
+                <ctrl:TouchButton x:Name="ctBtButton2" Visibility="Visible" Command="{Binding Button2}" Margin="10" Width="176" Height="100" Tag="Home2"  Source="pack://siteoforigin:,,,/Resources/Images/bu_pop_ok.png" SourceOver="pack://siteoforigin:,,,/Resources/Images/bu_pop_ok_on.png" TextBlockStyle="{DynamicResource styleConfirmButton}" HorizontalAlignment="Right" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
